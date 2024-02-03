@@ -3,9 +3,11 @@ import { useQuery } from "react-query";
 import axios from "axios";
 
 export default function Heroes(): JSX.Element {
-  const { isLoading, data } = useQuery("super-heroes", () => {
+  const fetchSuperheroes = () => {
     return axios.get("http://localhost:4000/superheroes");
-  });
+  };
+
+  const { isLoading, data } = useQuery("super-heroes", fetchSuperheroes);
   if (isLoading) {
     <h2>Loading.... </h2>;
   }
