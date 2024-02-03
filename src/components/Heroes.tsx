@@ -6,10 +6,14 @@ export default function Heroes(): JSX.Element {
     return axios.get("http://localhost:4000/superheroes");
   };
 
-  const { isLoading, data, isError, error } = useQuery(
+  const { isLoading, data, isError, error, isFetching } = useQuery(
     "super-heroes",
-    fetchSuperheroes
+    fetchSuperheroes,
+    {
+      enabled: false,
+    }
   );
+
   if (isLoading) {
     return <h2>Loading.... </h2>;
   }
