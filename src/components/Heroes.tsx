@@ -6,7 +6,7 @@ export default function Heroes(): JSX.Element {
     return axios.get("http://localhost:4000/superheroes");
   };
 
-  const { isLoading, data, isError, error, isFetching } = useQuery(
+  const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     "super-heroes",
     fetchSuperheroes,
     {
@@ -14,7 +14,15 @@ export default function Heroes(): JSX.Element {
     }
   );
 
-  if (isLoading) {
+  const handleClick = async () => {
+    try {
+      await refetch();
+    } catch (error) {
+      console.error("Error while refetching:", error);
+    }
+  };
+
+  if (isLoading || isFetching) {
     return <h2>Loading.... </h2>;
   }
 
@@ -24,6 +32,7 @@ export default function Heroes(): JSX.Element {
 
   return (
     <div>
+      <button onClick={handleClick}> fetch heroes</button>
       {data?.data.map((item: any) => {
         return <div key={item.name}>{item.name} </div>;
       })}
