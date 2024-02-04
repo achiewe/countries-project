@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 
+// function Heroes which return jsx element
 export default function Heroes(): JSX.Element {
   const onSuccess = (): void => {
     console.log("perform side effect after data fetching");
