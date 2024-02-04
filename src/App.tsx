@@ -1,8 +1,8 @@
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import Heroes from "./components/Heroes";
 import GlobalStyles from "./GlobalStyles";
 import styled from "styled-components";
+import LocationComponent from "./components/CachePermission";
 
 const queryClient = new QueryClient();
 
@@ -11,7 +11,8 @@ function App(): JSX.Element {
     <QueryClientProvider client={queryClient}>
       <MainContainer>
         <GlobalStyles />
-        <Heroes />
+
+        <LocationComponent />
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
       </MainContainer>
     </QueryClientProvider>
