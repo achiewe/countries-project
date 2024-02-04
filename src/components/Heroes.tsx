@@ -2,6 +2,14 @@ import { useQuery } from "react-query";
 import axios from "axios";
 
 export default function Heroes(): JSX.Element {
+  const onSucccess = () => {
+    console.log("perform side effect after data fetching");
+  };
+
+  const onError = () => {
+    console.log("perform side effect after encountering error");
+  };
+
   const fetchSuperheroes = () => {
     return axios.get("http://localhost:4000/superheroes");
   };
@@ -9,8 +17,10 @@ export default function Heroes(): JSX.Element {
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     "super-heroes",
     fetchSuperheroes,
+
     {
-      enabled: false,
+      onSuccess: onSucccess,
+      onError: onError,
     }
   );
 
