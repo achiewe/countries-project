@@ -22,6 +22,10 @@ export default function Heroes(): JSX.Element {
     {
       onSuccess,
       onError,
+      select: (data) => {
+        const superHeroNames = data.data.map((hero: any) => hero.name);
+        return superHeroNames;
+      },
     }
   );
 
@@ -44,8 +48,11 @@ export default function Heroes(): JSX.Element {
   return (
     <div>
       <button onClick={handleClick}> fetch heroes</button>
-      {data?.data.map((item: any) => {
+      {/* {data?.data.map((item: any) => {
         return <div key={item.name}>{item.name} </div>;
+      })} */}
+      {data.map((heroName: any) => {
+        return <div key={heroName}>{heroName} </div>;
       })}
     </div>
   );
