@@ -12,7 +12,7 @@ export default function Heroes(): JSX.Element {
   };
 
   const fetchSuperheroes = () => {
-    return axios.get("http://localhost:4000/superheroes");
+    return axios.get("http://localhost:4000/superheroes1");
   };
 
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
