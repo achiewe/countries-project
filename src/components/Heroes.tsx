@@ -1,4 +1,4 @@
-
+import { useSuperHeroesData } from "../hooks/useSuperHeroesData";
 
 // function Heroes which return jsx element
 export default function Heroes(): JSX.Element {
@@ -10,9 +10,8 @@ export default function Heroes(): JSX.Element {
     console.log("perform side effect after encountering error", data);
   };
 
-  
-
-  const { isLoading, data, isError, error, isFetching, refetch } = 
+  const { isLoading, data, isError, error, isFetching, refetch } =
+    useSuperHeroesData(onSuccess, onError);
 
   const handleClick = async () => {
     try {
