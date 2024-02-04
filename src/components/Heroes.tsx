@@ -3,12 +3,12 @@ import axios from "axios";
 
 // function Heroes which return jsx element
 export default function Heroes(): JSX.Element {
-  const onSuccess = (): void => {
-    console.log("perform side effect after data fetching");
+  const onSuccess = (data: any): void => {
+    console.log("perform side effect after data fetching", data);
   };
 
-  const onError = (): void => {
-    console.log("perform side effect after encountering error");
+  const onError = (data: any): void => {
+    console.log("perform side effect after encountering error", data);
   };
 
   const fetchSuperheroes = () => {
