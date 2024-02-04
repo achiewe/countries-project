@@ -1,5 +1,4 @@
-import { useQuery } from "react-query";
-import axios from "axios";
+
 
 // function Heroes which return jsx element
 export default function Heroes(): JSX.Element {
@@ -11,23 +10,9 @@ export default function Heroes(): JSX.Element {
     console.log("perform side effect after encountering error", data);
   };
 
-  const fetchSuperheroes = () => {
-    return axios.get("http://localhost:4000/superheroes");
-  };
+  
 
-  const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
-    "super-heroes",
-    fetchSuperheroes,
-
-    {
-      onSuccess,
-      onError,
-      select: (data) => {
-        const superHeroNames = data.data.map((hero: any) => hero.name);
-        return superHeroNames;
-      },
-    }
-  );
+  const { isLoading, data, isError, error, isFetching, refetch } = 
 
   const handleClick = async () => {
     try {
