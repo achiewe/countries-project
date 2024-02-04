@@ -6,7 +6,7 @@ const LocationComponent = () => {
 
   const fetchCountry = async (latitude: number, longitude: number) => {
     console.log("000");
-    const apiKey = "AIzaSyBuJxOhdikzTvOD-1xKhPl0DdRiYoXuKEY"; // Replace with your API key
+    const apiKey = ""; // Replace with your API key
     const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
 
     const response = await fetch(apiUrl);
