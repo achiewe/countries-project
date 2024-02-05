@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const LocationComponent = () => {
   const [location, setLocation] = useState<any>(null);
   const [country, setCountry] = useState<string | null>(null);
-
+  // asdasd
   const fetchCountry = async (latitude: number, longitude: number) => {
     const apiKey: string = import.meta.env.VITE_REACT_APP_GOOGLE_API_KEY || "";
 
