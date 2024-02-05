@@ -11,7 +11,6 @@ function App(): JSX.Element {
     <QueryClientProvider client={queryClient}>
       <MainContainer>
         <GlobalStyles />
-
         <LocationComponent />
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
       </MainContainer>
