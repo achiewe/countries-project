@@ -16,9 +16,9 @@ const HomeMain = styled.div`
   max-width: 1200px;
   background-color: #efefef;
   display: flex;
+  flex-direction: column;
   gap: 30px;
   border-radius: 5px;
   border: 1px solid grey;
-  height: 500px;
   padding: 30px;
 `;
