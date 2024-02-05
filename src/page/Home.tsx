@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default function Home() {
-  return <HomeMain>Home</HomeMain>;
+  return <HomeMain></HomeMain>;
 }
 
 const HomeMain = styled.div`
@@ -10,6 +10,7 @@ const HomeMain = styled.div`
   background-color: #e2e2e2;
   display: flex;
   border-radius: 5px;
+  border: 1px solid grey;
   height: 500px;
   padding: 30px;
 `;
