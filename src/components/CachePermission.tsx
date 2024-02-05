@@ -60,7 +60,7 @@ const LocationComponent = () => {
           Your location is: {location.latitude}, {location.longitude}
           {
             <span>
-              , Country: {country} short country {shortCountry}
+              , Country: {country} || short name {shortCountry}
             </span>
           }
         </p>
