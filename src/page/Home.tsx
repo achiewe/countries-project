@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import InputCountry from "../components/Home/InputCountry";
+import CountryInfo from "../components/Home/CountryInfo";
 
 export default function Home() {
   return (
     <HomeMain>
       <InputCountry />
+      <CountryInfo />
     </HomeMain>
   );
 }
