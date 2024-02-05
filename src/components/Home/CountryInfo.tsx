@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import mexicoImg from "../../../public/assets/flagMexico.png";
 
 export default function CountryInfo() {
   return (
     <MainInfoDiv>
       <div className="flagNameDiv">
         <h1> country name</h1>
+        <img src={mexicoImg} className="countryMap" />
       </div>
     </MainInfoDiv>
   );
@@ -33,6 +35,11 @@ const MainInfoDiv = styled.div`
       font-weight: 800;
       color: black;
       font-style: normal;
+    }
+
+    .countryMap {
+      width: 40px;
+      height: 30px;
     }
   }
 `;
