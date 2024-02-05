@@ -28,6 +28,7 @@ const LocationComponent = () => {
         const countryName = countryResult.address_components[3];
         console.log(countryResult);
         setCountry(countryName.long_name);
+        setShortCountry(countryName.short_name);
       }
     }
   };
