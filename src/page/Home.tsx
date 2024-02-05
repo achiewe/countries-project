@@ -1,14 +1,20 @@
 import styled from "styled-components";
+import InputCountry from "../components/Home/InputCountry";
 
 export default function Home() {
-  return <HomeMain></HomeMain>;
+  return (
+    <HomeMain>
+      <InputCountry />
+    </HomeMain>
+  );
 }
 
 const HomeMain = styled.div`
   width: 100%;
   max-width: 1200px;
-  background-color: #e2e2e2;
+  background-color: #efefef;
   display: flex;
+  gap: 30px;
   border-radius: 5px;
   border: 1px solid grey;
   height: 500px;
