@@ -11,6 +11,7 @@ function App(): JSX.Element {
     <QueryClientProvider client={queryClient}>
       <MainContainer>
         <GlobalStyles />
+
         <LocationComponent />
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
       </MainContainer>
@@ -24,6 +25,6 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: #ffffff;
 `;
 export default App;
