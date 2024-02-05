@@ -1,18 +1,28 @@
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
 import styled from "styled-components";
 
 export default function InputCountry() {
   return (
     <MainInputDiv>
-      <input />
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">achi</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          label="Age"
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+        </Select>
+      </FormControl>
     </MainInputDiv>
   );
 }
 
 const MainInputDiv = styled.div`
   width: 100%;
-  padding: 32px;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
 `;
