@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
+import { useCountryStore } from "../store";
 
 const LocationComponent = () => {
   const [location, setLocation] = useState<any>(null);
-  const [country, setCountry] = useState<string | null>(null);
+  const country = useCountryStore((state) => state.country);
+  const setCountry = useCountryStore((state) => state.setCountry);
+
+  console.log(country);
   // asdasd
   const fetchCountry = async (latitude: number, longitude: number) => {
     const apiKey: string = import.meta.env.VITE_REACT_APP_GOOGLE_API_KEY || "";
@@ -19,8 +23,9 @@ const LocationComponent = () => {
           result.types.includes("country") || result.types.includes("political")
       );
       if (countryResult) {
-        const countryName = countryResult.formatted_address;
-        setCountry(countryName);
+        const countryName = countryResult.address_components[3];
+        console.log(countryResult);
+        setCountry(countryName.long_name);
       }
     }
   };
