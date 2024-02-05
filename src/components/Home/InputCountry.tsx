@@ -8,11 +8,14 @@ export default function InputCountry() {
   return (
     <MainInputDiv>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">achi</InputLabel>
+        <InputLabel id="demo-simple-select-label" style={{ color: "black" }}>
+          achi
+        </InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="Age"
+          value={10}
         >
           <MenuItem value={10}>Ten</MenuItem>
         </Select>
