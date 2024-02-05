@@ -8,7 +8,6 @@ const LocationComponent = () => {
   const setCountry = useCountryStore((state) => state.setCountry);
   const setShortCountry = useCountryStore((state) => state.setShortCountry);
 
-  console.log(country);
   // asdasd
   const fetchCountry = async (latitude: number, longitude: number) => {
     const apiKey: string = import.meta.env.VITE_REACT_APP_GOOGLE_API_KEY || "";
@@ -59,7 +58,11 @@ const LocationComponent = () => {
       {location ? (
         <p>
           Your location is: {location.latitude}, {location.longitude}
-          {<span>, Country: {country}</span>}
+          {
+            <span>
+              , Country: {country} short country {shortCountry}
+            </span>
+          }
         </p>
       ) : (
         <p>Fetching location...</p>
