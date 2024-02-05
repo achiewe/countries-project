@@ -4,7 +4,9 @@ import { useCountryStore } from "../store";
 const LocationComponent = () => {
   const [location, setLocation] = useState<any>(null);
   const country = useCountryStore((state) => state.country);
+  const shortCountry = useCountryStore((state) => state.shortCountry);
   const setCountry = useCountryStore((state) => state.setCountry);
+  const setShortCountry = useCountryStore((state) => state.setShortCountry);
 
   console.log(country);
   // asdasd
