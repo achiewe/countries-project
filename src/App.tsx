@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 import Home from "./page/Home";
 import LocationComponent from "./components/CachePermission";
+import Header from "./Header";
 
 const queryClient = new QueryClient();
 
@@ -13,6 +14,7 @@ function App(): JSX.Element {
     <QueryClientProvider client={queryClient}>
       <MainContainer>
         <GlobalStyles />
+        <Header />
         <Home />
         <LocationComponent />
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
