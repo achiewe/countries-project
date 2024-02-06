@@ -8,6 +8,30 @@ export default function CountryInfo() {
         <h1> country name</h1>
         <img src={mexicoImg} className="countryMap" />
       </div>
+      <div className="flagNameDiv">
+        <h3> Capital:</h3>
+        <h4> Tbilisi</h4>
+      </div>
+      <div className="flagNameDiv">
+        <h3> Continent:</h3>
+        <h4> Tbilisi</h4>
+      </div>
+      <div className="flagNameDiv">
+        <h3> Currency:</h3>
+        <h4> Tbilisi</h4>
+      </div>
+      <div className="flagNameDiv">
+        <h3> Population:</h3>
+        <h4> Tbilisi</h4>
+      </div>
+      <div className="flagNameDiv">
+        <h3> Region:</h3>
+        <h4> Tbilisi</h4>
+      </div>
+      <div className="flagNameDiv">
+        <h3> Borders:</h3>
+        <h4> Tbilisi</h4>
+      </div>
     </MainInfoDiv>
   );
 }
@@ -40,6 +64,20 @@ const MainInfoDiv = styled.div`
     .countryMap {
       width: 40px;
       height: 30px;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: black;
+      font-style: normal;
+    }
+
+    h4 {
+      font-size: 16px;
+      font-weight: 400;
+      color: black;
+      font-style: normal;
     }
   }
 `;
