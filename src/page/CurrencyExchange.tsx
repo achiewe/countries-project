@@ -4,7 +4,6 @@ import CurrencyConverter from "../components/currency/CurrencyConverter";
 export default function CurrencyExchange() {
   return (
     <CurrencyContainer>
-      <h1> Currency Exchange</h1>
       <CurrencyConverter />
     </CurrencyContainer>
   );
@@ -12,16 +11,14 @@ export default function CurrencyExchange() {
 
 const CurrencyContainer = styled.div`
   width: 100%;
+  max-width: 1200px;
+  background-color: #efefef;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 30px;
-  justify-content: center;
-
-  h1 {
-    font-size: 18px;
-    font-weight: 800;
-    color: black;
-    font-style: normal;
-  }
+  border-radius: 5px;
+  border: 1px solid grey;
+  padding: 30px;
 `;
