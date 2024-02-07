@@ -6,16 +6,12 @@ export default function CurrencyConverter() {
     <ConverterConatiner>
       <h1> Currency Exchange</h1>
       <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-standard-label">Age</InputLabel>
+        <InputLabel id="demo-simple-select-standard-label">country</InputLabel>
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
-          value="12"
-          label="Age"
+          label="country"
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
           <MenuItem value={10}>Ten</MenuItem>
           <MenuItem value={20}>Twenty</MenuItem>
           <MenuItem value={30}>Thirty</MenuItem>
@@ -31,7 +27,7 @@ const ConverterConatiner = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 50px;
 
   h1 {
     font-size: 24px;
