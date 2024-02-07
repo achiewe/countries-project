@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./page/Home";
 import LocationComponent from "./components/CachePermission";
 import Header from "./Header";
+import CurrencyExchange from "./page/CurrencyExchange";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ function App(): JSX.Element {
         <GlobalStyles />
         <Header />
         <Home />
+        <CurrencyExchange />
         <LocationComponent />
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
       </MainContainer>
