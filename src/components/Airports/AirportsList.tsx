@@ -10,7 +10,12 @@ export default function AirportsList() {
         label="Search for Airport"
         variant="standard"
       />
-      <div className="currencyExchangeDiv"></div>
+      <div className="airportsDiv">
+        <div className="mainDivAirports">
+          <p> asdasdasdasdasd</p>
+          <p> asdasdasdasasdasd</p>
+        </div>
+      </div>
     </AirportsContainer>
   );
 }
@@ -22,4 +27,20 @@ const AirportsContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 30px;
+
+  .airportsDiv {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mainDivAirports {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 50px;
+  }
 `;
