@@ -24,7 +24,7 @@ export default function Header() {
         </svg>
       </Link>
 
-      <Link to="/CurrencyExchange">
+      <Link to="/Currency">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"
@@ -37,7 +37,7 @@ export default function Header() {
         </svg>
       </Link>
 
-      <Link to="/Airport">
+      <Link to="/Airports">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"

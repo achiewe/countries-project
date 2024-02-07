@@ -21,7 +21,7 @@ function App(): JSX.Element {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Currency" element={<CurrencyExchange />} />
-            <Route path="/Airport" element={<Airports />} />
+            <Route path="/Airports" element={<Airports />} />
           </Routes>
           <LocationComponent />
           <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
