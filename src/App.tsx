@@ -12,16 +12,20 @@ const queryClient = new QueryClient();
 
 function App(): JSX.Element {
   return (
-    <QueryClientProvider client={queryClient}>
-      <MainContainer>
-        <GlobalStyles />
-        <Header />
-        <Home />
-        <CurrencyExchange />
-        <LocationComponent />
-        <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
-      </MainContainer>
-    </QueryClientProvider>
+    <Router>
+      <QueryClientProvider client={queryClient}>
+        <MainContainer>
+          <GlobalStyles />
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Currency" element={<CurrencyExchange />} />
+          </Routes>
+          <LocationComponent />
+          <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+        </MainContainer>
+      </QueryClientProvider>
+    </Router>
   );
 }
 
