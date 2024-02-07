@@ -17,6 +17,7 @@ export default function CurrencyConverter() {
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>
+      <div className="currencyExchangeDiv"></div>
     </ConverterConatiner>
   );
 }
@@ -34,5 +35,13 @@ const ConverterConatiner = styled.div`
     font-weight: 800;
     color: black;
     font-style: normal;
+  }
+
+  .currencyExchangeDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
   }
 `;
