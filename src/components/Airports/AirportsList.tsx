@@ -15,6 +15,10 @@ export default function AirportsList() {
           <p> asdasdasdasdasd</p>
           <p> asdasdasdasasdasd</p>
         </div>
+        <div className="mainDivAirports">
+          <p> asdasdasdasdasd</p>
+          <p> asdasdasdasasdasdascascasc</p>
+        </div>
       </div>
     </AirportsContainer>
   );
@@ -32,15 +36,26 @@ const AirportsContainer = styled.div`
     display: flex;
     width: 100%;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     gap: 10px;
   }
 
   .mainDivAirports {
+    min-width: 400px;
+    max-width: 400px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
+    justify-content: center;
+
     gap: 50px;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 800;
+    color: black;
+    font-style: normal;
   }
 `;
