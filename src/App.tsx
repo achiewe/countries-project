@@ -2,7 +2,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import GlobalStyles from "./GlobalStyles";
 import styled from "styled-components";
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./page/Home";
 import LocationComponent from "./components/CachePermission";
 import Header from "./Header";
