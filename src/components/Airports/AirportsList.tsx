@@ -42,20 +42,20 @@ const AirportsContainer = styled.div`
   }
 
   .mainDivAirports {
-    min-width: 400px;
-    max-width: 400px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
+    width: 100%;
     gap: 50px;
   }
 
   p {
     font-size: 14px;
-    font-weight: 800;
-    color: black;
-    font-style: normal;
+    display: inline;
+    font-style: "normal";
+    font-weight: 600;
+    max-width: 120px;
+    min-width: 120px;
   }
 `;
