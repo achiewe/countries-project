@@ -17,8 +17,7 @@ const CurrencyContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
   border-radius: 5px;
   border: 1px solid grey;
-  padding: 30px;
+  padding: 30px 0;
 `;
