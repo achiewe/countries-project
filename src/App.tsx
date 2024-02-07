@@ -7,6 +7,7 @@ import Home from "./page/Home";
 import LocationComponent from "./components/CachePermission";
 import Header from "./Header";
 import CurrencyExchange from "./page/CurrencyExchange";
+import Airports from "./page/Airports";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ function App(): JSX.Element {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Currency" element={<CurrencyExchange />} />
+            <Route path="/Airport" element={<Airports />} />
           </Routes>
           <LocationComponent />
           <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
