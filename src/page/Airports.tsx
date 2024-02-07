@@ -1,7 +1,12 @@
 import styled from "styled-components";
+import AirportsList from "../components/Airports/AirportsList";
 
 export default function Airports() {
-  return <AirportsContainer></AirportsContainer>;
+  return (
+    <AirportsContainer>
+      <AirportsList />
+    </AirportsContainer>
+  );
 }
 
 const AirportsContainer = styled.div`

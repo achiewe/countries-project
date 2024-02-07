@@ -5,7 +5,11 @@ export default function AirportsList() {
   return (
     <AirportsContainer>
       <h1> Airports</h1>
-      <TextField id="standard-basic" label="Standard" variant="standard" />
+      <TextField
+        id="standard-basic"
+        label="Search for Airport"
+        variant="standard"
+      />
       <div className="currencyExchangeDiv"></div>
     </AirportsContainer>
   );
@@ -17,5 +21,5 @@ const AirportsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
 `;
