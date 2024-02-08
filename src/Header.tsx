@@ -6,7 +6,7 @@ export default function Header() {
 
   console.log(pathname);
   return (
-    <HeaderContainer>
+    <HeaderContainer pathname={pathname}>
       <Link to="/">
         <svg
           fill="#000000"
@@ -58,7 +58,7 @@ export default function Header() {
   );
 }
 
-const HeaderContainer = styled.header`
+const HeaderContainer = styled.header<{ pathname: string }>`
   width: 200px;
   background-color: #efefef;
   max-width: 700px;
