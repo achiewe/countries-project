@@ -38,16 +38,16 @@ const AirportsContainer = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
   }
 
   .mainDivAirports {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    gap: 50px;
+    gap: 5px;
   }
 
   p {
