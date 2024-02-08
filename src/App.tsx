@@ -31,6 +31,7 @@ function App(): JSX.Element {
   );
 }
 
+// style for the component
 const MainContainer = styled.div`
   width: 100%;
   min-height: 100vh;
