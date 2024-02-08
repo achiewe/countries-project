@@ -55,6 +55,7 @@ export default function Header() {
   );
 }
 
+// style for the component
 const HeaderContainer = styled.header<{ pathname: string }>`
   width: 200px;
   background-color: #efefef;
