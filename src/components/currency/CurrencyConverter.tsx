@@ -22,6 +22,7 @@ export default function CurrencyConverter() {
   );
 }
 
+// style for the component
 const ConverterConatiner = styled.div`
   display: flex;
   width: 100%;
