@@ -11,6 +11,7 @@ export default function Home() {
   );
 }
 
+// style for the component
 const HomeMain = styled.div`
   width: 100%;
   max-width: 1200px;
