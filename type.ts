@@ -1,4 +1,4 @@
-export interface Country {
+interface CountryType {
   altSpellings?: string[];
   area?: number;
   borders?: string[];
@@ -39,3 +39,5 @@ export interface Country {
   translations?: Record<string, { official: string; common: string }>;
   unMember?: boolean;
 }
+
+export default CountryType;
