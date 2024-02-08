@@ -7,7 +7,7 @@ export default function Header() {
   console.log(pathname);
   return (
     <HeaderContainer pathname={pathname}>
-      <Link to="/" className="homePng">
+      <Link to="/" className="homeSvg">
         <svg
           fill="#000000"
           height="30"
@@ -26,7 +26,7 @@ export default function Header() {
         </svg>
       </Link>
 
-      <Link to="/Currency" className="currencyPng">
+      <Link to="/Currency" className="currencySvg">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"
@@ -38,7 +38,7 @@ export default function Header() {
         </svg>
       </Link>
 
-      <Link to="/Airports" className="airportPng">
+      <Link to="/Airports" className="airportSvg">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -76,5 +76,9 @@ const HeaderContainer = styled.header<{ pathname: string }>`
 
   a svg:hover {
     fill: #7ec8e3;
+  }
+
+  .homeSvg svg path {
+    fill: ${(props) => (props.pathname === "/" ? "#7ec8e3" : "")};
   }
 `;
