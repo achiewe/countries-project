@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import mexicoImg from "../../../public/assets/flagMexico.png";
+import { useEffect } from "react";
 
 export default function CountryInfo() {
+  useEffect(() => {}, []);
+
   return (
     <MainInfoDiv>
       <div className="flagNameDiv">
