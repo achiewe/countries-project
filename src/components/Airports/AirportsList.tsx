@@ -20,6 +20,7 @@ export default function AirportsList() {
   );
 }
 
+// style for the component
 const AirportsContainer = styled.div`
   display: flex;
   width: 100%;
