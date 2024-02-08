@@ -8,8 +8,6 @@ const LocationComponent = () => {
   const setCountry = useCountryStore((state) => state.setCountry);
   const setShortCountry = useCountryStore((state) => state.setShortCountry);
 
-  console.log(country);
-
   // asdasd
   const fetchCountry = async (latitude: number, longitude: number) => {
     const apiKey: string = import.meta.env.VITE_REACT_APP_GOOGLE_API_KEY || "";

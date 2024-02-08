@@ -1,20 +1,7 @@
 import styled from "styled-components";
 import mexicoImg from "../../../public/assets/flagMexico.png";
-import { useEffect } from "react";
-import axios from "axios";
 
 export default function CountryInfo() {
-  useEffect(() => {
-    const takeCountryInfo = async () => {
-      const response = await axios.get(
-        "https://restcountries.com/v3.1/all?fields=name,cca2,cca3,capital,currencies,region,subregion,continents,population,borders,flags"
-      );
-      console.log(response);
-    };
-
-    takeCountryInfo();
-  }, []);
-
   return (
     <MainInfoDiv>
       <div className="flagNameDiv">
