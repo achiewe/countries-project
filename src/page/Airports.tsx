@@ -9,6 +9,7 @@ export default function Airports() {
   );
 }
 
+// style for the component
 const AirportsContainer = styled.div`
   width: 100%;
   max-width: 800px;
