@@ -36,6 +36,7 @@ export default function CountryInfo() {
   );
 }
 
+// style for the component
 const MainInfoDiv = styled.div`
   width: 100%;
   padding: 20px;
