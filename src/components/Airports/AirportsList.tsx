@@ -15,10 +15,6 @@ export default function AirportsList() {
           <p> asdasdasdasdasd</p>
           <p> asdasdasdasasdasd</p>
         </div>
-        <div className="mainDivAirports">
-          <p> asdasdasdasdasd</p>
-          <p> asdasdasdasasdasdascascasc</p>
-        </div>
       </div>
     </AirportsContainer>
   );
