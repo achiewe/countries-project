@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Header() {
+  const pathname = window.location.pathname;
+
+  console.log(pathname);
   return (
     <HeaderContainer>
       <Link to="/">
