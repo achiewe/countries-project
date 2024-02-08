@@ -55,7 +55,5 @@ const AirportsContainer = styled.div`
     display: inline;
     font-style: "normal";
     font-weight: 600;
-    max-width: 120px;
-    min-width: 120px;
   }
 `;
