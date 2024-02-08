@@ -78,7 +78,7 @@ const HeaderContainer = styled.header<{ pathname: string }>`
     fill: #7ec8e3;
   }
 
-  .airportLink svg path {
+  .airportLink > svg > path {
     fill: ${(props) => (props.pathname === "/" ? "#FFFFFF" : "")};
   }
 `;
