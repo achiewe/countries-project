@@ -46,7 +46,7 @@ export default function InputCountry() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          label="Age"
+          label="Country"
           value={10}
         >
           {allCountries?.map((country) => (
