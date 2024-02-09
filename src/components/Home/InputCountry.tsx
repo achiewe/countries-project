@@ -7,6 +7,10 @@ import axios from "axios";
 import { useCountryStore } from "../../store";
 import CountryType from "../../../type";
 
+const MainInputDiv = styled.div`
+  width: 100%;
+`;
+
 export default function InputCountry() {
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
 
@@ -16,17 +20,16 @@ export default function InputCountry() {
         const response = await axios.get(
           "https://restcountries.com/v3.1/all?fields=name,capital,currencies,region,subregion,continents,population,borders,flags"
         );
-        const data = response.data.map((country: CountryType) => ({
+        const data = response.data.map((country: any) => ({
           name: country.name,
-          nameOff: country.name,
           capital: country.capital,
-          currency: country.currency,
+          currency: country.currencies[0].name,
           region: country.region,
-          subregion: country.region,
+          subregion: country.subregion,
           continent: country.continent,
           population: country.population,
           borders: country.borders,
-          flag: country.flag,
+          flag: country.flags[0],
           // Add more properties if needed
         }));
         setAllCountries(data);
@@ -47,7 +50,7 @@ export default function InputCountry() {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="Country"
-          value={10}
+          value="" // Set default value or leave it empty
         >
           {allCountries?.map((country) => (
             <MenuItem key={country.name} value={country.name}>
@@ -59,7 +62,3 @@ export default function InputCountry() {
     </MainInputDiv>
   );
 }
-
-const MainInputDiv = styled.div`
-  width: 100%;
-`;
