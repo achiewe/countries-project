@@ -14,18 +14,19 @@ export default function InputCountry() {
     const fetchCountries = async () => {
       try {
         const response = await axios.get(
-          "https://restcountries.com/v3.1/all?fields=name,cca2,cca3,capital,currencies,region,subregion,continents,population,borders,flags"
+          "https://restcountries.com/v3.1/all?fields=name,capital,currencies,region,subregion,continents,population,borders,flags"
         );
         const data = response.data.map((country: CountryType) => ({
           name: country.name,
+          nameOff: country.name,
+          capital: country.capital,
+          currency: country.currency,
+          region: country.region,
+          subregion: country.region,
+          continent: country.continent,
+          population: country.population,
+          borders: country.borders,
           flag: country.flag,
-          shortName: country.shortName || "",
-          capital: country.capital?.[0] || "",
-          continent: country.continent || "",
-          currency: Object.keys(country.currency || {}).join(", "),
-          population: country.population || 0,
-          region: country.region || "",
-          borders: country.borders || [],
           // Add more properties if needed
         }));
         setAllCountries(data);
