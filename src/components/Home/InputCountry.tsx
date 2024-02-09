@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import axios from "axios";
 import { useCountryStore } from "../../store";
-import CountryType from "../../../type";
 
 export default function InputCountry() {
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
