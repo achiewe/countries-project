@@ -7,10 +7,6 @@ import axios from "axios";
 import { useCountryStore } from "../../store";
 import CountryType from "../../../type";
 
-const MainInputDiv = styled.div`
-  width: 100%;
-`;
-
 export default function InputCountry() {
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
 
@@ -62,3 +58,7 @@ export default function InputCountry() {
     </MainInputDiv>
   );
 }
+
+const MainInputDiv = styled.div`
+  width: 100%;
+`;
