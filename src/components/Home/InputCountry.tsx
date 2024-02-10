@@ -29,7 +29,6 @@ export default function InputCountry() {
           flag: country.flags[0],
           // Add more properties if needed
         }));
-        console.log("Fetched countries data:", data);
         setAllCountries(data);
       } catch (error) {
         console.error("Error fetching countries:", error);
