@@ -17,7 +17,7 @@ export default function InputCountry() {
           "https://restcountries.com/v3.1/all?fields=name,capital,currencies,region,subregion,continents,population,borders,flags"
         );
         const data = response.data.map((country: any) => ({
-          name: country.name,
+          name: country.name.common,
           capital: country.capital,
           currency: country.currencies[0]?.name || "Unknown", // Handling if currencies array is empty
           region: country.region,
@@ -39,8 +39,8 @@ export default function InputCountry() {
   }, []);
 
   const allCountries = useCountryStore((state) => state.allCountries);
+  const defaultValue = allCountries.length > 0 ? allCountries[0].name : "";
 
-  console.log(allCountries);
   return (
     <MainInputDiv>
       {allCountries.length === 0 ? (
@@ -50,12 +50,11 @@ export default function InputCountry() {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            label="Country"
-            value="" // Set default value or leave it empty
+            label={defaultValue}
+            value={defaultValue}
           >
             {allCountries.map(
               (country) =>
-                // Check if country name is defined and not null/undefined
                 country.name && (
                   <MenuItem key={country.name} value={country.name}>
                     {country.name}
