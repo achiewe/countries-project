@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useCountryStore } from "../../store";
 
+// InputCountry function
 export default function InputCountry() {
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
 
