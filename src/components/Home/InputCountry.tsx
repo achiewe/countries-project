@@ -53,11 +53,15 @@ export default function InputCountry() {
             label="Country"
             value="" // Set default value or leave it empty
           >
-            {allCountries.map((country) => (
-              <MenuItem key={country.name} value={country.name}>
-                {country.name}
-              </MenuItem>
-            ))}
+            {allCountries.map(
+              (country) =>
+                // Check if country name is defined and not null/undefined
+                country.name && (
+                  <MenuItem key={country.name} value={country.name}>
+                    {country.name}
+                  </MenuItem>
+                )
+            )}
           </Select>
         </FormControl>
       )}
