@@ -1,6 +1,6 @@
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import Select, { SelectChangeEvent } from "@mui/material/Select"; // Import SelectChangeEvent
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -39,7 +39,7 @@ export default function InputCountry() {
   }, []);
 
   const allCountries = useCountryStore((state) => state.allCountries);
-  const handelCountryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handelCountryChange = (e: SelectChangeEvent<string>): void => {
     setSelectedCountry(e.target.value);
   };
 
@@ -51,9 +51,7 @@ export default function InputCountry() {
           id="demo-simple-select"
           label="Country"
           value={selectedCountry}
-          onChange={() => {
-            handelCountryChange;
-          }}
+          onChange={handelCountryChange}
         >
           {allCountries.map(
             (country) =>
