@@ -28,6 +28,7 @@ export default function InputCountry() {
           flag: country.flags[0],
           // Add more properties if needed
         }));
+        console.log("assdasd");
         setAllCountries(data);
       } catch (error) {
         console.log(error);
@@ -39,6 +40,7 @@ export default function InputCountry() {
 
   const allCountries = useCountryStore((state) => state.allCountries);
 
+  console.log(allCountries);
   return (
     <MainInputDiv>
       <FormControl fullWidth>
