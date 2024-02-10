@@ -19,7 +19,7 @@ export default function InputCountry() {
         const data = response.data.map((country: any) => ({
           name: country.name,
           capital: country.capital,
-          currency: country.currencies[0].name,
+          currency: country.currencies[0]?.name || "Unknown", // Handling if currencies array is empty
           region: country.region,
           subregion: country.subregion,
           continent: country.continent,
@@ -28,10 +28,10 @@ export default function InputCountry() {
           flag: country.flags[0],
           // Add more properties if needed
         }));
-        console.log("assdasd");
+        console.log("Fetched countries data:", data);
         setAllCountries(data);
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching countries:", error);
       }
     };
 
@@ -43,20 +43,24 @@ export default function InputCountry() {
   console.log(allCountries);
   return (
     <MainInputDiv>
-      <FormControl fullWidth>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          label="Country"
-          value="" // Set default value or leave it empty
-        >
-          {allCountries?.map((country) => (
-            <MenuItem key={country.name} value={country.name}>
-              {country.name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      {allCountries.length === 0 ? (
+        <div>Loading...</div>
+      ) : (
+        <FormControl fullWidth>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            label="Country"
+            value="" // Set default value or leave it empty
+          >
+            {allCountries.map((country) => (
+              <MenuItem key={country.name} value={country.name}>
+                {country.name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      )}
     </MainInputDiv>
   );
 }
