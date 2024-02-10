@@ -40,7 +40,7 @@ export default function InputCountry() {
   }, []);
 
   const allCountries = useCountryStore((state) => state.allCountries);
-  const handelCountryChange = (e: any) => {
+  const handelCountryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedCountry(e.target.value);
   };
 
@@ -52,7 +52,9 @@ export default function InputCountry() {
           id="demo-simple-select"
           label="Country"
           value={selectedCountry}
-          onChange={handelCountryChange}
+          onChange={() => {
+            handelCountryChange;
+          }}
         >
           {allCountries.map(
             (country) =>
