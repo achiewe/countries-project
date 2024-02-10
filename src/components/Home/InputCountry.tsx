@@ -2,13 +2,14 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import styled from "styled-components";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useCountryStore } from "../../store";
 
 // InputCountry function
 export default function InputCountry() {
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
+  const [selectedCountry, setSelectedCountry] = useState<string>("");
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -39,31 +40,30 @@ export default function InputCountry() {
   }, []);
 
   const allCountries = useCountryStore((state) => state.allCountries);
-  const defaultValue = allCountries.length > 0 ? allCountries[0].name : "";
+  const handelCountryChange = (e: any) => {
+    setSelectedCountry(e.target.value);
+  };
 
   return (
     <MainInputDiv>
-      {allCountries.length === 0 ? (
-        <div>Loading...</div>
-      ) : (
-        <FormControl fullWidth>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            label={defaultValue}
-            value={defaultValue}
-          >
-            {allCountries.map(
-              (country) =>
-                country.name && (
-                  <MenuItem key={country.name} value={country.name}>
-                    {country.name}
-                  </MenuItem>
-                )
-            )}
-          </Select>
-        </FormControl>
-      )}
+      <FormControl fullWidth>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          label="Country"
+          value={selectedCountry}
+          onChange={handelCountryChange}
+        >
+          {allCountries.map(
+            (country) =>
+              country.name && (
+                <MenuItem key={country.name} value={country.name}>
+                  {country.name}
+                </MenuItem>
+              )
+          )}
+        </Select>
+      </FormControl>
     </MainInputDiv>
   );
 }
