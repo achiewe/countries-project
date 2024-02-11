@@ -9,6 +9,8 @@ import { useCountryStore } from "../../store";
 // InputCountry function
 export default function InputCountry() {
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
+  const countryInfo = useCountryStore((state) => state.countryInfo);
+  const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
   const [selectedCountry, setSelectedCountry] = useState<string>("");
 
   useEffect(() => {
