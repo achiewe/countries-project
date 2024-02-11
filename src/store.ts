@@ -6,7 +6,7 @@ type CountryStore = {
   shortCountry: string;
   allCountries: CountryType[];
   countryInfo: CountryType[] | null;
-  setCountryInfo: (newCountry: null) => void;
+  setCountryInfo: (newCountry: null | CountryType[]) => void;
   setAllCountries: (newCountry: CountryType[]) => void;
   setCountry: (newCountry: string) => void;
   setShortCountry: (newCoutry: string) => void;
@@ -26,7 +26,7 @@ export const useCountryStore = create<CountryStore>((set) => ({
   setAllCountries: (newCountry: CountryType[]) => {
     set({ allCountries: newCountry });
   },
-  setCountryInfo: (newCountry: null) => {
+  setCountryInfo: (newCountry: null | CountryType[]) => {
     set({ countryInfo: newCountry });
   },
 }));

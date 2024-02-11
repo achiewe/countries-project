@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useCountryStore } from "../../store";
+import CountryType from "../../../type";
 
 // InputCountry function
 export default function InputCountry() {
@@ -19,7 +20,7 @@ export default function InputCountry() {
         const response = await axios.get(
           "https://restcountries.com/v3.1/all?fields=name,capital,currencies,region,subregion,continents,population,borders,flags"
         );
-        const data = response.data.map((country: any) => ({
+        const data = response.data.map((country: CountryType[]) => ({
           name: country.name.common,
           capital: country.capital,
           currency: country.currencies[0]?.name || "Unknown", // Handling if currencies array is empty
@@ -42,7 +43,11 @@ export default function InputCountry() {
 
   const allCountries = useCountryStore((state) => state.allCountries);
   const handelCountryChange = (e: SelectChangeEvent<string>): void => {
+    const selectedCountryInfo = allCountries.find(
+      (country) => country.name === e.target.value
+    );
     setSelectedCountry(e.target.value);
+    setCountryInfo(selectedCountryInfo);
   };
 
   return (

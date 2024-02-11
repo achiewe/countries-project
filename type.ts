@@ -7,7 +7,9 @@ interface CountryType {
   currency?: string;
   population?: number;
   region?: string;
+  subregion?: string; // Add subregion property
   borders?: string[];
+  flags?: string[]; // Add flags property
 }
 
 export default CountryType;
