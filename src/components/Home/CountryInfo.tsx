@@ -10,9 +10,6 @@ export default function CountryInfo() {
   }
 
   const currency = countryInfo[0].currencies;
-  console.log(currency);
-  // const currencyName = currency ? currency.name : "";
-  // const currencySymbol = currency ? currency.symbol : "";
 
   return (
     <MainInfoDiv>
