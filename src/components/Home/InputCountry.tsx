@@ -32,9 +32,9 @@ export default function InputCountry() {
           },
           region: country.region,
           subregion: country.subregion,
-          continent: country.continent ? country.continent[0] : undefined,
+          continent: country.continents?.[0],
           population: country.population,
-          borders: country.borders,
+          borders: country.borders ? country.borders.join(" ") : "",
           flags: {
             alt: country.flags?.alt,
             png: country.flags?.png,

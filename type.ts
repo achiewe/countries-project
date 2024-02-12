@@ -6,7 +6,7 @@ interface CountryType {
   flag?: string;
   shortName?: string;
   capital?: string;
-  continent?: string;
+  continents?: string[];
   currencies?: {
     name: string;
     symbol: string;

@@ -21,7 +21,7 @@ export default function CountryInfo() {
       </div>
       <div className="flagNameDiv">
         <h3>Continent:</h3>
-        <h4>{countryInfo[0].continent}</h4>
+        <h4>{countryInfo[0].continents}</h4>
       </div>
       <div className="flagNameDiv">
         <h3>Currency:</h3>
