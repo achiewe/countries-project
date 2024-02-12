@@ -9,6 +9,10 @@ export default function CountryInfo() {
     return <div>Loading...</div>; // Return a loading indicator or handle null case
   }
 
+  const currency = countryInfo[0].currencies && countryInfo[0].currencies[0];
+  const currencyName = currency ? currency.name : "";
+  const currencySymbol = currency ? currency.symbol : "";
+
   return (
     <MainInfoDiv>
       <div className="flagNameDiv">
@@ -25,7 +29,10 @@ export default function CountryInfo() {
       </div>
       <div className="flagNameDiv">
         <h3>Currency:</h3>
-        <h4>{}</h4>
+        <h4>
+          {currencyName}
+          {currencySymbol}
+        </h4>
       </div>
       <div className="flagNameDiv">
         <h3>Population:</h3>

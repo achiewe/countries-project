@@ -26,10 +26,12 @@ export default function InputCountry() {
             official: country.name.official,
           },
           capital: country.capital,
-          currencies: {
-            name: country.currencies?[0].name?,
-            symbol: country.currencies?[0].symbol?,
-          },
+          currencies: country.currencies
+            ? {
+                name: country.currencies[0]?.name ?? "",
+                symbol: country.currencies[0]?.symbol ?? "",
+              }
+            : { name: "", symbol: "" },
           region: country.region,
           subregion: country.subregion,
           continents: country.continents?.[0],
