@@ -93,6 +93,9 @@ const MainInfoDiv = styled.div`
       font-weight: 400;
       color: black;
       font-style: normal;
+      text-align: center;
+      /* min-width: 300px;
+      max-width: 300px; */
     }
   }
 `;
