@@ -29,10 +29,10 @@ export default function InputCountry() {
           currency: {
             name: country.currencies?.name,
             symbol: country.currencies?.symbol,
-          }, // Handling if currencies array is empty
+          },
           region: country.region,
           subregion: country.subregion,
-          continent: country.continent,
+          continent: country.continent ? country.continent[0] : undefined,
           population: country.population,
           borders: country.borders,
           flags: {
@@ -40,7 +40,6 @@ export default function InputCountry() {
             png: country.flags?.png,
             svg: country.flags?.svg,
           },
-          // Add more properties if needed
         }));
         setAllCountries(data);
       } catch (error) {
