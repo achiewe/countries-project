@@ -21,8 +21,12 @@ export default function InputCountry() {
         const response = await axios.get(
           "https://restcountries.com/v3.1/all?fields=name,capital,currencies,region,subregion,continents,population,borders,flags"
         );
+        console.log(response);
         const data = response.data.map((country: CountryType) => ({
-          name: country.name.common,
+          name: {
+            common: country.name.common,
+            official: country.name.official,
+          },
           capital: country.capital,
           currency: country.currencies[0]?.name || "Unknown", // Handling if currencies array is empty
           region: country.region,
@@ -45,7 +49,7 @@ export default function InputCountry() {
   const allCountries = useCountryStore((state) => state.allCountries);
   const handelCountryChange = (e: SelectChangeEvent<string>): void => {
     const selectedCountryInfo = allCountries.find(
-      (country) => country.name === e.target.value
+      (country) => country.name.common === e.target.value
     );
     setSelectedCountry(e.target.value);
     setCountryInfo(selectedCountryInfo);
@@ -64,8 +68,8 @@ export default function InputCountry() {
           {allCountries.map(
             (country) =>
               country.name && (
-                <MenuItem key={country.name} value={country.name}>
-                  {country.name}
+                <MenuItem key={country.name.common} value={country.name.common}>
+                  {country.name.common}
                 </MenuItem>
               )
           )}

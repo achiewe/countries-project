@@ -1,5 +1,8 @@
 interface CountryType {
-  name: string;
+  name: {
+    common: string;
+    official: string;
+  };
   flag?: string;
   shortName?: string;
   capital?: string;
