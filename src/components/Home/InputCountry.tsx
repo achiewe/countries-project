@@ -32,7 +32,7 @@ export default function InputCountry() {
           },
           region: country.region,
           subregion: country.subregion,
-          continent: country.continents?.[0],
+          continents: country.continents?.[0],
           population: country.population,
           borders: country.borders ? country.borders.join(" ") : "",
           flags: {
