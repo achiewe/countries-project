@@ -7,10 +7,12 @@ interface CountryType {
   shortName?: string;
   capital?: string;
   continents?: string[];
-  currencies?: {
-    name: string;
-    symbol: string;
-  }[];
+  currencies?:
+    | {
+        name: string;
+        symbol: string;
+      }[]
+    | undefined;
   population?: number;
   region?: string;
   subregion?: string; // Add subregion property
