@@ -17,34 +17,37 @@ export default function CountryInfo() {
   return (
     <MainInfoDiv>
       <div className="flagNameDiv">
-        <h1>{countryInfo[0].name.common}</h1>
+        <h1>
+          {countryInfo[0].name.common ? countryInfo[0].name.common : "N/A"}
+        </h1>
         {/* <img src={countryInfo[0].flags.png} className="countryMap" alt={`${countryInfo[0].name.common} flag`} /> */}
       </div>
       <div className="flagNameDiv">
         <h3>Capital:</h3>
-        <h4>{countryInfo[0].capital}</h4>
+        <h4>{countryInfo[0].capital ? countryInfo[0].capital : "N/A"}</h4>
       </div>
       <div className="flagNameDiv">
         <h3>Continent:</h3>
-        <h4>{countryInfo[0].continents}</h4>
+        <h4>{countryInfo[0].continents ? countryInfo[0].continents : "N/A"}</h4>
       </div>
       <div className="flagNameDiv">
         <h3>Currency:</h3>
         <h4>
-          {currency?.[0]?.name} {currency?.[0]?.symbol}
+          {currency?.[0]?.name ? currency?.[0]?.name : "N/A"}{" "}
+          {currency?.[0]?.symbol ? currency?.[0]?.symbol : "N/A"}
         </h4>
       </div>
       <div className="flagNameDiv">
         <h3>Population:</h3>
-        <h4>{countryInfo[0].population}</h4>
+        <h4>{countryInfo[0].population ? countryInfo[0].population : "N/A"}</h4>
       </div>
       <div className="flagNameDiv">
         <h3>Region:</h3>
-        <h4>{countryInfo[0].region}</h4>
+        <h4>{countryInfo[0].region ? countryInfo[0].region : "N/A"}</h4>
       </div>
       <div className="flagNameDiv">
         <h3>Borders:</h3>
-        <h4>{countryInfo[0].borders}</h4>
+        <h4>{countryInfo[0].borders ? countryInfo[0].borders : "N/A"}</h4>
       </div>
     </MainInfoDiv>
   );
