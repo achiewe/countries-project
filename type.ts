@@ -15,7 +15,11 @@ interface CountryType {
   region?: string;
   subregion?: string; // Add subregion property
   borders?: string[];
-  flags?: string[]; // Add flags property
+  flags?: {
+    alt: string;
+    png: string;
+    svg: string;
+  }; // Add flags property
 }
 
 export default CountryType;
