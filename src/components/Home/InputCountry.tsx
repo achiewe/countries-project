@@ -28,7 +28,10 @@ export default function InputCountry() {
             official: country.name.official,
           },
           capital: country.capital,
-          currency: country.currency.name || "Unknown", // Handling if currencies array is empty
+          currency: {
+            name: country.currencies?.name,
+            symbol: country.currencies?.symbol,
+          }, // Handling if currencies array is empty
           region: country.region,
           subregion: country.subregion,
           continent: country.continent,
