@@ -10,8 +10,6 @@ import CountryType from "../../../type";
 // InputCountry function
 export default function InputCountry() {
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
-  const allCountry = useCountryStore((state) => state.allCountries);
-  const countryInfo = useCountryStore((state) => state.countryInfo);
   const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
   const [selectedCountry, setSelectedCountry] = useState<string>("");
 
@@ -58,8 +56,15 @@ export default function InputCountry() {
     const selectedCountryInfo = allCountries.find(
       (country) => country.name.common === e.target.value
     );
-    setSelectedCountry(e.target.value);
-    setCountryInfo(selectedCountryInfo);
+
+    // Check if selectedCountryInfo is defined before setting
+    if (selectedCountryInfo) {
+      setSelectedCountry(e.target.value);
+      setCountryInfo([selectedCountryInfo]); // Wrap selectedCountryInfo in an array
+    } else {
+      setSelectedCountry(""); // Reset selected country if not found
+      setCountryInfo(null); // Set country info to null
+    }
   };
 
   return (
