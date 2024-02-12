@@ -10,6 +10,7 @@ import CountryType from "../../../type";
 // InputCountry function
 export default function InputCountry() {
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
+  const allCountry = useCountryStore((state) => state.allCountries);
   const countryInfo = useCountryStore((state) => state.countryInfo);
   const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
   const [selectedCountry, setSelectedCountry] = useState<string>("");
@@ -20,7 +21,7 @@ export default function InputCountry() {
         const response = await axios.get(
           "https://restcountries.com/v3.1/all?fields=name,capital,currencies,region,subregion,continents,population,borders,flags"
         );
-        const data = response.data.map((country: CountryType[]) => ({
+        const data = response.data.map((country: CountryType) => ({
           name: country.name.common,
           capital: country.capital,
           currency: country.currencies[0]?.name || "Unknown", // Handling if currencies array is empty
