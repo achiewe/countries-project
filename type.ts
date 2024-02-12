@@ -10,7 +10,7 @@ interface CountryType {
   currencies?: {
     name: string;
     symbol: string;
-  };
+  }[];
   population?: number;
   region?: string;
   subregion?: string; // Add subregion property

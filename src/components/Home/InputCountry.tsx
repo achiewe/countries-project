@@ -26,9 +26,9 @@ export default function InputCountry() {
             official: country.name.official,
           },
           capital: country.capital,
-          currency: {
-            name: country.currencies?.name,
-            symbol: country.currencies?.symbol,
+          currencies: {
+            name: country.currencies?[0].name?,
+            symbol: country.currencies?[0].symbol?,
           },
           region: country.region,
           subregion: country.subregion,

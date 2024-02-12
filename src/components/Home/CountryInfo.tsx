@@ -25,9 +25,7 @@ export default function CountryInfo() {
       </div>
       <div className="flagNameDiv">
         <h3>Currency:</h3>
-        <h4>
-          {countryInfo[0].currencies?.name} {countryInfo[0].currencies?.symbol}
-        </h4>
+        <h4>{}</h4>
       </div>
       <div className="flagNameDiv">
         <h3>Population:</h3>
