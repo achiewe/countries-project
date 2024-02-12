@@ -17,11 +17,19 @@ export default function CountryInfo() {
         <h1>
           {countryInfo[0].name.common ? countryInfo[0].name.common : "N/A"}
         </h1>
-        {/* <img src={countryInfo[0].flags.png} className="countryMap" alt={`${countryInfo[0].name.common} flag`} /> */}
+        <img
+          src={countryInfo[0]?.flags?.png}
+          className="countryMap"
+          alt={`${countryInfo[0].name.common} flag`}
+        />
       </div>
       <div className="flagNameDiv">
         <h3>Capital:</h3>
-        <h4>{countryInfo[0].capital ? countryInfo[0].capital : "N/A"}</h4>
+        <h4>
+          {countryInfo[0].capital?.length === 0
+            ? "N/A"
+            : countryInfo[0].capital}
+        </h4>
       </div>
       <div className="flagNameDiv">
         <h3>Continent:</h3>
