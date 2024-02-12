@@ -41,6 +41,10 @@ export default function InputCountry() {
             svg: country.flags?.svg,
           },
         }));
+        // Sort data alphabetically by common name before setting
+        data.sort((a: CountryType, b: CountryType) =>
+          a.name.common.localeCompare(b.name.common)
+        );
         setAllCountries(data);
       } catch (error) {
         console.error("Error fetching countries:", error);
