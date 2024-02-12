@@ -1,45 +1,52 @@
 import styled from "styled-components";
-import mexicoImg from "../../../public/assets/flagMexico.png";
 import { useCountryStore } from "../../store";
 
 export default function CountryInfo() {
   const countryInfo = useCountryStore((state) => state.countryInfo);
 
+  // Check if countryInfo is null or undefined
+  if (!countryInfo) {
+    return <div>Loading...</div>; // Return a loading indicator or handle null case
+  }
+
   return (
     <MainInfoDiv>
       <div className="flagNameDiv">
-        <h1> country name</h1>
-        <img src={mexicoImg} className="countryMap" />
+        <h1>{countryInfo[0].name.common}</h1>
+        {/* <img src={countryInfo[0].flags.png} className="countryMap" alt={`${countryInfo[0].name.common} flag`} /> */}
       </div>
       <div className="flagNameDiv">
-        <h3> Capital:</h3>
-        <h4> Tbilisi</h4>
+        <h3>Capital:</h3>
+        <h4>{countryInfo[0].capital}</h4>
       </div>
       <div className="flagNameDiv">
-        <h3> Continent:</h3>
-        <h4> Tbilisi</h4>
+        <h3>Continent:</h3>
+        <h4>{countryInfo[0].continent}</h4>
       </div>
       <div className="flagNameDiv">
-        <h3> Currency:</h3>
-        <h4> Tbilisi</h4>
+        <h3>Currency:</h3>
+        <h4>
+          {countryInfo[0].currencies?.name} ({countryInfo[0].currencies?.symbol}
+          )
+        </h4>
       </div>
       <div className="flagNameDiv">
-        <h3> Population:</h3>
-        <h4> Tbilisi</h4>
+        <h3>Population:</h3>
+        <h4>{countryInfo[0].population}</h4>
       </div>
       <div className="flagNameDiv">
-        <h3> Region:</h3>
-        <h4> Tbilisi</h4>
+        <h3>Region:</h3>
+        <h4>{countryInfo[0].region}</h4>
       </div>
       <div className="flagNameDiv">
-        <h3> Borders:</h3>
-        <h4> Tbilisi</h4>
+        <h3>Borders:</h3>
+        <h4>{countryInfo[0].borders}</h4>
       </div>
     </MainInfoDiv>
   );
 }
 
-// style for the component
+// Style for the component
 const MainInfoDiv = styled.div`
   width: 100%;
   padding: 20px;
