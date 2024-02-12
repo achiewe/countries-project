@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import mexicoImg from "../../../public/assets/flagMexico.png";
+import { useCountryStore } from "../../store";
 
 export default function CountryInfo() {
+  const countryInfo = useCountryStore((state) => state.countryInfo);
+
   return (
     <MainInfoDiv>
       <div className="flagNameDiv">
