@@ -37,7 +37,11 @@ export default function InputCountry() {
           continent: country.continent,
           population: country.population,
           borders: country.borders,
-          flag: country.flags[0],
+          flags: {
+            alt: country.flags?.alt,
+            png: country.flags?.png,
+            svg: country.flags?.svg,
+          },
           // Add more properties if needed
         }));
         setAllCountries(data);
