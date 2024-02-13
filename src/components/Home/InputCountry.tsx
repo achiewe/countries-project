@@ -13,6 +13,8 @@ export default function InputCountry() {
   const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
   const [selectedCountry, setSelectedCountry] = useState<string>("");
 
+  const history = useHistory();
+
   useEffect(() => {
     const fetchCountries = async () => {
       try {
