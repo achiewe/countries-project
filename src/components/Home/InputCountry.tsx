@@ -66,7 +66,6 @@ export default function InputCountry() {
     const selectedCountryInfo = allCountries.find(
       (country) => country.name.common === e.target.value
     );
-    //set country if else operator
     // Check if selectedCountryInfo is defined before setting
     if (selectedCountryInfo) {
       setSelectedCountry(e.target.value);
