@@ -40,5 +40,9 @@ const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
+
+  @media (min-width: 768px) {
+    padding: 20px;
+  }
 `;
 export default App;
