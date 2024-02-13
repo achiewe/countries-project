@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useCountryStore } from "../../store";
 import CountryType from "../../../type";
+import { useNavigate } from "react-router-dom";
 
 // InputCountry function
 export default function InputCountry() {
