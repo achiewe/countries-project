@@ -69,6 +69,11 @@ const HeaderContainer = styled.header<{ pathname: string }>`
   border-radius: 20px;
   justify-content: center;
 
+  @media (min-width: 768px) {
+    width: 400px;
+    gap: 100px;
+  }
+
   .currencyAirplanePng {
     width: 30px;
     height: 30px;
