@@ -6,19 +6,22 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useCountryStore } from "../../store";
 import CountryType from "../../../type";
+import { useNavigate } from "react-router-dom";
 
 // InputCountry function
 export default function InputCountry() {
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
   const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
   const [selectedCountry, setSelectedCountry] = useState<string>("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCountries = async () => {
       try {
         const response = await axios.get(
-          "https://restcountries.com/v3.1/all?fields=name,capital,currencies,region,subregion,continents,population,borders,flags"
+          "https://restcountries.com/v3.1/all?fields=name,shortName,capital,currencies,region,subregion,continents,population,borders,flags"
         );
+        console.log(response, "mevar");
         // console.log(response.data[0].currencies, "mevar");
         const data = response.data.map((country: CountryType) => {
           // Extracting currency information
@@ -34,6 +37,7 @@ export default function InputCountry() {
               common: country.name.common,
               official: country.name.official,
             },
+            shortName: country.shortName,
             capital: country.capital,
             currencies: currencies.length > 0 ? currencies : undefined,
             region: country.region,
@@ -66,10 +70,14 @@ export default function InputCountry() {
     const selectedCountryInfo = allCountries.find(
       (country) => country.name.common === e.target.value
     );
+    console.log(selectedCountryInfo?.name.official);
+
     // Check if selectedCountryInfo is defined before setting
     if (selectedCountryInfo) {
       setSelectedCountry(e.target.value);
       setCountryInfo([selectedCountryInfo]); // Wrap selectedCountryInfo in an array
+      // Update URL based on the selected country's official name
+      // navigate(`/${selectedCountryInfo.name.official}`); // Update URL path
     } else {
       setSelectedCountry(""); // Reset selected country if not found
       setCountryInfo(null); // Set country info to null
