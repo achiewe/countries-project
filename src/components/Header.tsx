@@ -86,7 +86,7 @@ const HeaderContainer = styled.header`
     cursor: pointer;
   }
 
-  a svg:hover {
-    fill: #7ec8e3;
+  a:hover {
+    fill: red;
   }
 `;
