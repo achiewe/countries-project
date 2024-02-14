@@ -48,7 +48,6 @@ export default function Header() {
           width="30"
           style={{
             fill: pathname === "/Countries/Airports" ? "#7ec8e3" : "#000000",
-            hover: red,
           }}
           height="30"
         >
@@ -87,7 +86,7 @@ const HeaderContainer = styled.header`
     cursor: pointer;
   }
 
-  a svg:hover {
-    fill: red;
+  a path:hover {
+    fill: #7ec8e3;
   }
 `;
