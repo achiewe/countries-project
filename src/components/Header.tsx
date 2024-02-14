@@ -3,15 +3,14 @@ import styled from "styled-components";
 
 export default function Header() {
   const pathname = window.location.pathname;
-
-  const navigate = useNavigate();
+  useNavigate();
 
   console.log(pathname);
   return (
     <HeaderContainer>
       <Link to="/Countries" className="homeLink">
         <svg
-          style={{ fill: pathname === "/Countries" ? "white" : "#000000" }}
+          style={{ fill: pathname === "/Countries" ? "#7ec8e3" : "#000000" }}
           height="30"
           width="30"
           version="1.1"
@@ -34,7 +33,7 @@ export default function Header() {
           width="30"
           height="30"
           style={{
-            fill: pathname === "/Countries/Currency" ? "white" : "#000000",
+            fill: pathname === "/Countries/Currency" ? "#7ec8e3" : "#000000",
           }}
           viewBox="0 0 16 16"
         >
@@ -48,7 +47,7 @@ export default function Header() {
           viewBox="0 0 24 24"
           width="30"
           style={{
-            fill: pathname === "/Countries/Airports" ? "white" : "#000000",
+            fill: pathname === "/Countries/Airports" ? "#7ec8e3" : "#000000",
           }}
           height="30"
         >
