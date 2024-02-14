@@ -86,6 +86,9 @@ const HeaderContainer = styled.header`
     cursor: pointer;
   }
 
+  a polygon:hover {
+    fill: #7ec8e3;
+  }
   a path:hover {
     fill: #7ec8e3;
   }
