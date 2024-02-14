@@ -7,7 +7,7 @@ export default function Header() {
   console.log(pathname);
   return (
     <HeaderContainer pathname={pathname}>
-      <Link to="/" className="homeLink">
+      <Link to="/Countries" className="homeLink">
         <svg
           fill="#000000"
           height="30"
@@ -26,7 +26,7 @@ export default function Header() {
         </svg>
       </Link>
 
-      <Link to="/Currency" className="currencySvg">
+      <Link to="/Countries/Currency" className="currencySvg">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"
@@ -38,7 +38,7 @@ export default function Header() {
         </svg>
       </Link>
 
-      <Link to="/Airports" className="airportLink">
+      <Link to="/Countries/Airports" className="airportLink">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
