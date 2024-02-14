@@ -1,15 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Header() {
   const pathname = window.location.pathname;
 
+  const navigate = useNavigate();
+
   console.log(pathname);
   return (
-    <HeaderContainer pathname={pathname}>
+    <HeaderContainer>
       <Link to="/Countries" className="homeLink">
         <svg
-          fill="#000000"
+          style={{ fill: pathname === "/Countries" ? "white" : "#000000" }}
           height="30"
           width="30"
           version="1.1"
@@ -31,7 +33,9 @@ export default function Header() {
           xmlns="http://www.w3.org/2000/svg"
           width="30"
           height="30"
-          fill="black"
+          style={{
+            fill: pathname === "/Countries/Currency" ? "white" : "#000000",
+          }}
           viewBox="0 0 16 16"
         >
           <path d="M0 5a5.002 5.002 0 0 0 4.027 4.905 6.46 6.46 0 0 1 .544-2.073C3.695 7.536 3.132 6.864 3 5.91h-.5v-.426h.466V5.05c0-.046 0-.093.004-.135H2.5v-.427h.511C3.236 3.24 4.213 2.5 5.681 2.5c.316 0 .59.031.819.085v.733a3.46 3.46 0 0 0-.815-.082c-.919 0-1.538.466-1.734 1.252h1.917v.427h-1.98c-.003.046-.003.097-.003.147v.422h1.983v.427H3.93c.118.602.468 1.03 1.005 1.229a6.5 6.5 0 0 1 4.97-3.113A5.002 5.002 0 0 0 0 5zm16 5.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0zm-7.75 1.322c.069.835.746 1.485 1.964 1.562V14h.54v-.62c1.259-.086 1.996-.74 1.996-1.69 0-.865-.563-1.31-1.57-1.54l-.426-.1V8.374c.54.06.884.347.966.745h.948c-.07-.804-.779-1.433-1.914-1.502V7h-.54v.629c-1.076.103-1.808.732-1.808 1.622 0 .787.544 1.288 1.45 1.493l.358.085v1.78c-.554-.08-.92-.376-1.003-.787H8.25z" />
@@ -43,6 +47,9 @@ export default function Header() {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           width="30"
+          style={{
+            fill: pathname === "/Countries/Airports" ? "white" : "#000000",
+          }}
           height="30"
         >
           <g>
@@ -56,7 +63,7 @@ export default function Header() {
 }
 
 // style for the component
-const HeaderContainer = styled.header<{ pathname: string }>`
+const HeaderContainer = styled.header`
   width: 200px;
   background-color: #efefef;
   max-width: 700px;
@@ -82,9 +89,5 @@ const HeaderContainer = styled.header<{ pathname: string }>`
 
   a svg:hover {
     fill: #7ec8e3;
-  }
-
-  .airportLink > svg > path {
-    fill: ${(props) => (props.pathname === "/" ? "#FFFFFF" : "")};
   }
 `;
