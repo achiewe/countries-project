@@ -84,12 +84,6 @@ const HeaderContainer = styled.header`
     padding: 20px 0;
   }
 
-  .currencyAirplanePng {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-  }
-
   a polygon:hover {
     fill: #7ec8e3;
   }
