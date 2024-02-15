@@ -35,7 +35,7 @@ export default function InputCountry() {
               common: country.name.common,
               official: country.name.official,
             },
-            shortName: country.shortName,
+            // shortName: country.name.nativeName,
             capital: country.capital,
             currencies: currencies.length > 0 ? currencies : undefined,
             region: country.region,
