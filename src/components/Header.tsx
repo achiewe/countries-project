@@ -45,7 +45,10 @@ export default function Header() {
           width="30"
           height="30"
           style={{
-            fill: pathname === "/Countries/Currency" ? "#7ec8e3" : "#000000",
+            fill:
+              pathname === `/Countries/${shortCountryName}/Currency`
+                ? "#7ec8e3"
+                : "#000000",
           }}
           viewBox="0 0 16 16"
         >
@@ -63,7 +66,10 @@ export default function Header() {
           viewBox="0 0 24 24"
           width="30"
           style={{
-            fill: pathname === "/Countries/Airports" ? "#7ec8e3" : "#000000",
+            fill:
+              pathname === `/Countries/${shortCountryName}/Airports`
+                ? "#7ec8e3"
+                : "#000000",
           }}
           height="30"
         >
