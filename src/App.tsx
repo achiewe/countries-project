@@ -26,7 +26,12 @@ function App(): JSX.Element {
           <GlobalStyles />
           <Header />
           <Routes>
-            <Route path="/" element={<Navigate to="/Countries" replace />} />
+            <Route
+              path="/"
+              element={
+                <Navigate to={`/Countries/${shortCountryName}`} replace />
+              }
+            />
             <Route path={`/Countries/${shortCountryName}`} element={<Home />} />
             <Route
               path={`/Countries/${shortCountryName}/Currency`}
