@@ -30,7 +30,10 @@ export default function Header() {
         </svg>
       </Link>
 
-      <Link to="/Countries/Currency" className="currencySvg">
+      <Link
+        to={`/Countries/${shortCountryName}/Currency`}
+        className="currencySvg"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="headerSvgs"
@@ -45,7 +48,10 @@ export default function Header() {
         </svg>
       </Link>
 
-      <Link to="/Countries/Airports" className="airportLink">
+      <Link
+        to={`/Countries/${shortCountryName}/Airports`}
+        className="airportLink"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="headerSvgs"
