@@ -5,7 +5,6 @@ export default function Header() {
   const pathname = window.location.pathname;
   useNavigate();
 
-  console.log(pathname);
   return (
     <HeaderContainer>
       <Link to="/Countries" className="homeLink">
