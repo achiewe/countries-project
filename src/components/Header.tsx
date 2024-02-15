@@ -1,13 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useCountryStore } from "../store";
 
 export default function Header() {
   const pathname = window.location.pathname;
   useNavigate();
 
+  const shortCountryName = useCountryStore((state) => state.shortCountry);
+
   return (
     <HeaderContainer>
-      <Link to="/Countries" className="homeLink">
+      <Link to={`/Countries/${shortCountryName}`} className="homeLink">
         <svg
           style={{ fill: pathname === "/Countries" ? "#7ec8e3" : "#000000" }}
           className="headerSvgs"
