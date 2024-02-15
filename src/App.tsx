@@ -50,5 +50,9 @@ const MainContainer = styled.div`
   @media (min-width: 768px) {
     padding: 20px;
   }
+
+  @media (min-width: 1024px) {
+    padding: 0;
+  }
 `;
 export default App;
