@@ -29,7 +29,7 @@ function App(): JSX.Element {
             <Route path="/" element={<Navigate to="/Countries" replace />} />
             <Route path={`/Countries/${shortCountryName}`} element={<Home />} />
             <Route
-              path={`/Countries/${shortCountryName}Currency`}
+              path={`/Countries/${shortCountryName}/Currency`}
               element={<CurrencyExchange />}
             />
             <Route
