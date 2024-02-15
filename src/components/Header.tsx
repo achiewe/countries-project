@@ -79,6 +79,11 @@ const HeaderContainer = styled.header`
     gap: 100px;
   }
 
+  @media (min-width: 1024px) {
+    margin-top: 30px;
+    padding: 20px 0;
+  }
+
   .currencyAirplanePng {
     width: 30px;
     height: 30px;
