@@ -10,6 +10,7 @@ export default function Header() {
       <Link to="/Countries" className="homeLink">
         <svg
           style={{ fill: pathname === "/Countries" ? "#7ec8e3" : "#000000" }}
+          className="headerSvgs"
           height="30"
           width="30"
           version="1.1"
@@ -29,6 +30,7 @@ export default function Header() {
       <Link to="/Countries/Currency" className="currencySvg">
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className="headerSvgs"
           width="30"
           height="30"
           style={{
@@ -43,6 +45,7 @@ export default function Header() {
       <Link to="/Countries/Airports" className="airportLink">
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className="headerSvgs"
           viewBox="0 0 24 24"
           width="30"
           style={{
@@ -82,6 +85,13 @@ const HeaderContainer = styled.header`
   @media (min-width: 1024px) {
     margin-top: 30px;
     padding: 20px 0;
+  }
+
+  .headerSvgs {
+    @media (min-width: 1024px) {
+      width: 35px;
+      height: 35px;
+    }
   }
 
   a polygon:hover {
