@@ -11,7 +11,6 @@ import CountryType from "../../../type";
 export default function InputCountry() {
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
   const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
-  const country = useCountryStore((state) => state.country);
   const [selectedCountry, setSelectedCountry] = useState<string>("");
 
   useEffect(() => {
