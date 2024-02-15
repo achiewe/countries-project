@@ -12,7 +12,12 @@ export default function Header() {
     <HeaderContainer>
       <Link to={`/Countries/${shortCountryName}`} className="homeLink">
         <svg
-          style={{ fill: pathname === "/Countries" ? "#7ec8e3" : "#000000" }}
+          style={{
+            fill:
+              pathname === `/Countries/${shortCountryName}`
+                ? "#7ec8e3"
+                : "#000000",
+          }}
           className="headerSvgs"
           height="30"
           width="30"
