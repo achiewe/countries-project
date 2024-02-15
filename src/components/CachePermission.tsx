@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useCountryStore } from "../store";
 
 const LocationComponent = () => {
+  // bring the states in the component
   const [location, setLocation] = useState<any>(null);
   const country = useCountryStore((state) => state.country);
   const shortCountry = useCountryStore((state) => state.shortCountry);
