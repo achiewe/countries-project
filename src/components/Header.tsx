@@ -84,7 +84,7 @@ const HeaderContainer = styled.header`
 
   @media (min-width: 1024px) {
     margin-top: 30px;
-    padding: 20px 0;
+    padding: 15px 0;
   }
 
   .headerSvgs {
