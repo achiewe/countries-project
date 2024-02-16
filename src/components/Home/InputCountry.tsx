@@ -68,14 +68,11 @@ export default function InputCountry() {
     const selectedCountryInfo = allCountries.find(
       (country) => country.name.common === e.target.value
     );
-    console.log(selectedCountryInfo?.name.official);
 
     // Check if selectedCountryInfo is defined before setting
     if (selectedCountryInfo) {
       setSelectedCountry(e.target.value);
       setCountryInfo([selectedCountryInfo]); // Wrap selectedCountryInfo in an array
-      // Update URL based on the selected country's official name
-      // navigate(`/${selectedCountryInfo.name.official}`); // Update URL path
     } else {
       setSelectedCountry(""); // Reset selected country if not found
       setCountryInfo(null); // Set country info to null
