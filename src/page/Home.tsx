@@ -14,7 +14,7 @@ export default function Home() {
 // style for the component
 const HomeMain = styled.div`
   width: 100%;
-  max-width: 1200px;
+  max-width: 800px;
   background-color: #efefef;
   display: flex;
   flex-direction: column;

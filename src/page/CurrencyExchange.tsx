@@ -11,7 +11,7 @@ export default function CurrencyExchange() {
 
 const CurrencyContainer = styled.div`
   width: 100%;
-  max-width: 1200px;
+  max-width: 800px;
   background-color: #efefef;
   display: flex;
   flex-direction: column;
