@@ -71,10 +71,10 @@ export default function InputCountry() {
 
     // Check if selectedCountryInfo is defined before setting
     if (selectedCountryInfo) {
-      set(e.target.value);
+      setCountry(e.target.value);
       setCountryInfo([selectedCountryInfo]); // Wrap selectedCountryInfo in an array
     } else {
-      setSelectedCountry(""); // Reset selected country if not found
+      setCountry(""); // Reset selected country if not found
       setCountryInfo(null); // Set country info to null
     }
   };
@@ -86,7 +86,7 @@ export default function InputCountry() {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="Country"
-          value={selectedCountry}
+          value={setCountry}
           onChange={handelCountryChange}
         >
           {allCountries.map(
