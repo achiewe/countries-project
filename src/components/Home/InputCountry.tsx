@@ -11,7 +11,7 @@ import CountryType from "../../../type";
 export default function InputCountry() {
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
   const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
-  const [selectedCountry, setSelectedCountry] = useState<string>("");
+  const setCountry = useCountryStore((state) => state.setCountry);
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -71,7 +71,7 @@ export default function InputCountry() {
 
     // Check if selectedCountryInfo is defined before setting
     if (selectedCountryInfo) {
-      setSelectedCountry(e.target.value);
+      set(e.target.value);
       setCountryInfo([selectedCountryInfo]); // Wrap selectedCountryInfo in an array
     } else {
       setSelectedCountry(""); // Reset selected country if not found
