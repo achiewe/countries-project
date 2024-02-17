@@ -78,12 +78,15 @@ export default function InputCountry() {
     if (selectedCountryInfo) {
       setCountry(e.target.value);
       setCountryInfo([selectedCountryInfo]); // Wrap selectedCountryInfo in an array
-      setshortCountry(allCountries[0].altSpellings[0]);
-      console.log(allCountries[0].altSpellings[0], "undefined varrrr");
+      // setshortCountry(selectedCountryInfo.altSpellings.shortName);
+      // console.log(
+      //   selectedCountryInfo.altSpellings.shortName,
+      //   "undefined varrrr"
+      // );
     } else {
       setCountry(""); // Reset selected country if not found
       setCountryInfo(null); // Set country info to null
-      setshortCountry(shortCountry);
+      // setshortCountry(shortCountry, "erroria");
     }
   };
 
