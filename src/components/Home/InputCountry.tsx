@@ -18,7 +18,7 @@ export default function InputCountry() {
     const fetchCountries = async () => {
       try {
         const response = await axios.get(
-          "https://restcountries.com/v3.1/all?fields=name,shortName,altSpellings,capital,currencies,region,subregion,continents,population,borders,flags"
+          "https://restcountries.com/v3.1/all?fields=name,altSpellings,shortName,capital,currencies,region,subregion,continents,population,borders,flags"
         );
         console.log(response, "mevar");
         // console.log(response.data[0].currencies, "mevar");
@@ -35,6 +35,9 @@ export default function InputCountry() {
             name: {
               common: country.name.common,
               official: country.name.official,
+            },
+            altSpellings: {
+              shortName: country.altSpellings[0],
             },
             capital: country.capital,
             currencies: currencies.length > 0 ? currencies : undefined,
