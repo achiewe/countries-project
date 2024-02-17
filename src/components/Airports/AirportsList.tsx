@@ -29,22 +29,18 @@ const AirportsContainer = styled.div`
   align-items: center;
   gap: 30px;
 
-  .airportsDiv {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-  }
-
   .mainDivAirports {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
     justify-content: center;
     width: 100%;
-    gap: 5px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      gap: 100px;
+    }
   }
 
   p {
