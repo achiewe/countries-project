@@ -3,8 +3,10 @@ interface CountryType {
     common: string;
     official: string;
   };
+  altSpellings: {
+    shortName: string[];
+  };
   flag?: string;
-  shortName?: string;
   capital?: string;
   continents?: string[];
   currencies?:
