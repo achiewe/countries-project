@@ -14,6 +14,7 @@ export default function InputCountry() {
   const setCountry = useCountryStore((state) => state.setCountry);
   const country = useCountryStore((state) => state.country);
   const setshortCountry = useCountryStore((state) => state.setShortCountry);
+  const shortCountry = useCountryStore((state) => state.shortCountry);
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -70,16 +71,19 @@ export default function InputCountry() {
   const allCountries = useCountryStore((state) => state.allCountries);
   const handelCountryChange = (e: SelectChangeEvent<string>): void => {
     const selectedCountryInfo = allCountries.find(
-      (country) => country.name.common === e.target.value
+      (countries) => countries.name.common === e.target.value
     );
 
     // Check if selectedCountryInfo is defined before setting
     if (selectedCountryInfo) {
       setCountry(e.target.value);
       setCountryInfo([selectedCountryInfo]); // Wrap selectedCountryInfo in an array
+      setshortCountry(allCountries[0].altSpellings[0]);
+      console.log(allCountries[0].altSpellings[0], "undefined varrrr");
     } else {
       setCountry(""); // Reset selected country if not found
       setCountryInfo(null); // Set country info to null
+      setshortCountry(shortCountry);
     }
   };
 
