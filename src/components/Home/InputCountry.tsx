@@ -2,7 +2,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select"; // Import SelectChangeEvent
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import { useCountryStore } from "../../store";
 import CountryType from "../../../type";
@@ -87,7 +87,7 @@ export default function InputCountry() {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="Country"
-          value={setCountry}
+          value={country}
           onChange={handelCountryChange}
         >
           {allCountries.map(
