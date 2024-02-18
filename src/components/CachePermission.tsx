@@ -57,9 +57,7 @@ const LocationComponent = () => {
               common: country.name.common,
               official: country.name.official,
             },
-            altSpellings: {
-              shortName: country.altSpellings[0],
-            },
+            altSpellings: country.altSpellings[0],
             capital: country.capital,
             currencies: currencies.length > 0 ? currencies : undefined,
             region: country.region,

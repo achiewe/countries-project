@@ -4,7 +4,7 @@ interface CountryType {
     official: string;
   };
   shortName?: string;
-  altSpellings: string[];
+  altSpellings: string;
   flag?: string;
   capital?: string;
   continents?: string[];
