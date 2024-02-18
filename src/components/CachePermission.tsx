@@ -32,6 +32,8 @@ const LocationComponent = () => {
     }
   };
 
+  useEffect(() => {});
+
   useEffect(() => {
     const getLocation = () => {
       if (navigator.geolocation) {
