@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useCountryStore } from "../store";
 import CountryType from "../../type";
+import axios from "axios";
 
 const LocationComponent = () => {
   // bring the states in the component
