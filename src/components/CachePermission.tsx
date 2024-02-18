@@ -99,6 +99,7 @@ const LocationComponent = () => {
     fetchCountries();
   }, []);
 
+  // useEffect fetch the country where is that location
   useEffect(() => {
     const getLocation = () => {
       if (navigator.geolocation) {
@@ -118,7 +119,7 @@ const LocationComponent = () => {
     };
 
     getLocation();
-  }, []);
+  }, [allCountries]);
 
   return (
     <div>
