@@ -8,9 +8,15 @@ const LocationComponent = () => {
   const [location, setLocation] = useState<any>(null);
   const country = useCountryStore((state) => state.country);
   const shortCountry = useCountryStore((state) => state.shortCountry);
+  const allCountries = useCountryStore((state) => state.allCountries);
+
+  //bring the set states in the component
   const setCountry = useCountryStore((state) => state.setCountry);
   const setShortCountry = useCountryStore((state) => state.setShortCountry);
+  const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
+
+  const handleCountryInfo = (selectedCountry: string): void => {};
 
   // asdasd
   const fetchCountry = async (latitude: number, longitude: number) => {
