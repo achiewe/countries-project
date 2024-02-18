@@ -32,15 +32,12 @@ function App(): JSX.Element {
                 <Navigate to={`/Countries/${shortCountryName}`} replace />
               }
             />
-            <Route path={`/Countries/${shortCountryName}`} element={<Home />} />
+            <Route path="/Countries/:name" element={<Home />} />
             <Route
-              path={`/Countries/${shortCountryName}/Currency`}
+              path="/Countries/:name/Currency"
               element={<CurrencyExchange />}
             />
-            <Route
-              path={`/Countries/${shortCountryName}/Airports`}
-              element={<Airports />}
-            />
+            <Route path="/Countries/:name/Airports" element={<Airports />} />
           </Routes>
           <LocationComponent />
           <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
