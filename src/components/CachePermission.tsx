@@ -16,6 +16,7 @@ const LocationComponent = () => {
   const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
 
+  // user accept to share location
   const handleCountryInfo = (selectedCountry: string): void => {
     const selected = allCountries.filter((country) => {
       return country.name.common === selectedCountry;
@@ -24,7 +25,7 @@ const LocationComponent = () => {
     setCountryInfo(selected);
   };
 
-  // asdasd
+  // fetch country where is users location
   const fetchCountry = async (latitude: number, longitude: number) => {
     const apiKey: string = import.meta.env.VITE_REACT_APP_GOOGLE_API_KEY || "";
 
@@ -43,6 +44,7 @@ const LocationComponent = () => {
         const countryName = countryResult.address_components[3];
         setCountry(countryName.long_name);
         setShortCountry(countryName.short_name);
+        handleCountryInfo(countryName.long_name);
       }
     }
   };
