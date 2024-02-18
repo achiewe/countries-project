@@ -16,7 +16,13 @@ const LocationComponent = () => {
   const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
 
-  const handleCountryInfo = (selectedCountry: string): void => {};
+  const handleCountryInfo = (selectedCountry: string): void => {
+    const selected = allCountries.filter((country) => {
+      return country.name.common === selectedCountry;
+    });
+
+    setCountryInfo(selected);
+  };
 
   // asdasd
   const fetchCountry = async (latitude: number, longitude: number) => {
