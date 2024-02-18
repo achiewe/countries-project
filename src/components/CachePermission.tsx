@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useCountryStore } from "../store";
+import CountryType from "../../type";
 
 const LocationComponent = () => {
   // bring the states in the component
@@ -8,6 +9,7 @@ const LocationComponent = () => {
   const shortCountry = useCountryStore((state) => state.shortCountry);
   const setCountry = useCountryStore((state) => state.setCountry);
   const setShortCountry = useCountryStore((state) => state.setShortCountry);
+  const setAllCountries = useCountryStore((state) => state.setAllCountries);
 
   // asdasd
   const fetchCountry = async (latitude: number, longitude: number) => {
@@ -32,7 +34,57 @@ const LocationComponent = () => {
     }
   };
 
-  useEffect(() => {});
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const response = await axios.get(
+          "https://restcountries.com/v3.1/all?fields=name,altSpellings,shortName,capital,currencies,region,subregion,continents,population,borders,flags"
+        );
+        console.log(response, "mevar");
+        // console.log(response.data[0].currencies, "mevar");
+        const data = response.data.map((country: CountryType) => {
+          // Extracting currency information
+          const currencies = country.currencies
+            ? Object.keys(country.currencies).map((currencyCode: any) => ({
+                name: country.currencies![currencyCode].name,
+                symbol: country.currencies![currencyCode].symbol,
+              }))
+            : [];
+
+          return {
+            name: {
+              common: country.name.common,
+              official: country.name.official,
+            },
+            altSpellings: {
+              shortName: country.altSpellings[0],
+            },
+            capital: country.capital,
+            currencies: currencies.length > 0 ? currencies : undefined,
+            region: country.region,
+            subregion: country.subregion,
+            continents: country.continents?.[0],
+            population: country.population,
+            borders: country.borders ? country.borders.join(" ") : "",
+            flags: {
+              alt: country.flags?.alt,
+              png: country.flags?.png,
+              svg: country.flags?.svg,
+            },
+          };
+        });
+        // Sort data alphabetically by common name before setting
+        data.sort((a: CountryType, b: CountryType) =>
+          a.name.common.localeCompare(b.name.common)
+        );
+        setAllCountries(data);
+      } catch (error) {
+        console.error("Error fetching countries:", error);
+      }
+    };
+
+    fetchCountries();
+  }, []);
 
   useEffect(() => {
     const getLocation = () => {
