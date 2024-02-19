@@ -136,11 +136,26 @@ const LocationComponent = () => {
     getLocation();
   }, [allCountries]);
 
-  const { data:airports, isLoading:airportsLoading } = useQuery(
-    const fetchAirportsData = async() => {
-      const response = await axios.get("https://api.api-ninjas.com/v1/airports?country=") 
-    }
-  );
+  useEffect(() => {
+    const fetchAirports = async () => {
+      try {
+        const response = await axios.get(
+          `https://api.api-ninjas.com/v1/airports?country=GE`,
+          {
+            headers: { "X-Api-Key": airportsApiKey },
+          }
+        );
+        console.log("aeroporti", response);
+        console.log("aerpoprti data", response.data);
+        return response.data;
+      } catch (error) {
+        console.error("Error fetching airports:", error);
+        throw error; // Rethrow the error to be handled by the caller
+      }
+    };
+
+    fetchAirports();
+  });
 
   return (
     <div>
