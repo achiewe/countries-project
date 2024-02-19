@@ -144,24 +144,24 @@ const LocationComponent = () => {
     const fetchAirports = async () => {
       try {
         const response = await axios.get(
-          `https://api.api-ninjas.com/v1/airports?country=GE`,
+          `https://api.api-ninjas.com/v1/airports?country=GE&fields=city,iata,name`,
           {
             headers: { "X-Api-Key": airportsApiKey },
           }
         );
 
         const data = response.data;
-        setAirportsInfo(data);
-        // Extracting only required properties from the response data
-        const formattedAirports: AirportsType[] = airportsInfo.map(
+
+        const formattedAirports: AirportsType[] = data.map(
           (airport: AirportsType) => ({
-            city: airport,
+            city: airport.city,
             iata: airport.iata,
             name: airport.name,
           })
         );
         console.log("Formatted Airports:", formattedAirports);
-        return formattedAirports;
+
+        setAirportsInfo(formattedAirports); // Set the state after formatting the data
       } catch (error) {
         console.error("Error fetching airports:", error);
         throw error; // Rethrow the error to be handled by the caller
@@ -170,7 +170,6 @@ const LocationComponent = () => {
 
     fetchAirports();
   }, []);
-
   return (
     <div>
       {location ? (
