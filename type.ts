@@ -1,4 +1,4 @@
-interface CountryType {
+export interface CountryType {
   name: {
     common: string;
     official: string;
@@ -25,12 +25,8 @@ interface CountryType {
   }; // Add flags property
 }
 
-interface AirportsType {
+export interface AirportsType {
   city: string;
   iata: string;
   name: string;
 }
-
-export default AirportsType;
-
-export default CountryType;

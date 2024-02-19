@@ -1,15 +1,14 @@
 import { create } from "zustand";
-import CountryType from "../type";
-import AirportType from "../type";
+import { CountryType, AirportsType } from "../type";
 
 type CountryStore = {
   country: string;
   shortCountry: string;
   allCountries: CountryType[];
   countryInfo: CountryType[] | null;
-  airportsInfo: AirportType[];
+  airportsInfo: AirportsType[];
   setCountryInfo: (newCountry: null | CountryType[]) => void;
-  setAirportsInfo: (airports: AirportType[]) => void;
+  setAirportsInfo: (airports: AirportsType[]) => void;
   setAllCountries: (newCountry: CountryType[]) => void;
   setCountry: (newCountry: string) => void;
   setShortCountry: (newCoutry: string) => void;
@@ -33,7 +32,7 @@ export const useCountryStore = create<CountryStore>((set) => ({
   setCountryInfo: (newCountry: null | CountryType[]) => {
     set({ countryInfo: newCountry });
   },
-  setAirportsInfo: (airports: AirportType[]) => {
+  setAirportsInfo: (airports: AirportsType[]) => {
     set({ airportsInfo: airports });
   },
 }));
