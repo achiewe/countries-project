@@ -147,8 +147,8 @@ const LocationComponent = () => {
           }
         );
         // Extracting only required properties from the response data
-        const formattedAirports: Airport[] = response.data.map(
-          (airport: any) => ({
+        const formattedAirports: AirportType[] = response.data.map(
+          (airport: AirportType[]) => ({
             city: airport.city,
             iata: airport.iata,
             name: airport.name,
