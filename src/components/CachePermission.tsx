@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useCountryStore } from "../store";
 import CountryType from "../../type";
+import AirportType from "../../type";
 import axios from "axios";
 import { useQuery } from "react-query";
 const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
@@ -145,9 +146,16 @@ const LocationComponent = () => {
             headers: { "X-Api-Key": airportsApiKey },
           }
         );
-        console.log("aeroporti", response);
-        console.log("aerpoprti data", response.data);
-        return response.data;
+        // Extracting only required properties from the response data
+        const formattedAirports: Airport[] = response.data.map(
+          (airport: any) => ({
+            city: airport.city,
+            iata: airport.iata,
+            name: airport.name,
+          })
+        );
+        console.log("Formatted Airports:", formattedAirports);
+        return formattedAirports;
       } catch (error) {
         console.error("Error fetching airports:", error);
         throw error; // Rethrow the error to be handled by the caller
@@ -155,7 +163,7 @@ const LocationComponent = () => {
     };
 
     fetchAirports();
-  });
+  }, []);
 
   return (
     <div>

@@ -6,6 +6,7 @@ type CountryStore = {
   shortCountry: string;
   allCountries: CountryType[];
   countryInfo: CountryType[] | null;
+  airportsInfo:,
   setCountryInfo: (newCountry: null | CountryType[]) => void;
   setAllCountries: (newCountry: CountryType[]) => void;
   setCountry: (newCountry: string) => void;
