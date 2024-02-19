@@ -25,10 +25,4 @@ interface CountryType {
   }; // Add flags property
 }
 
-interface AirportType {
-  city: string;
-  iata: string;
-  name: string;
-}
-
 export default CountryType;
