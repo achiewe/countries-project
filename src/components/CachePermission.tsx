@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useCountryStore } from "../store";
 import { CountryType, AirportsType } from "../../type";
 import axios from "axios";
-import { useQuery } from "react-query";
 const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
 
 const LocationComponent = () => {
@@ -75,7 +74,7 @@ const LocationComponent = () => {
           "https://restcountries.com/v3.1/all?fields=name,altSpellings,cca2,cca3,shortName,capital,currencies,region,subregion,continents,population,borders,flags"
         );
         console.log(response, "mevar");
-        // console.log(response.data[0].currencies, "mevar");
+
         const data = response.data.map((country: CountryType) => {
           // Extracting currency information
           const currency = country.currencies
@@ -144,7 +143,7 @@ const LocationComponent = () => {
     const fetchAirports = async () => {
       try {
         const response = await axios.get(
-          `https://api.api-ninjas.com/v1/airports?country=GE&fields=city,iata,name`,
+          `https://api.api-ninjas.com/v1/airports?country=${allCountries[0].cca2}&fields=city,iata,name`,
           {
             headers: { "X-Api-Key": airportsApiKey },
           }
