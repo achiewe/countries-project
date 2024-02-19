@@ -72,7 +72,7 @@ const LocationComponent = () => {
     const fetchCountries = async () => {
       try {
         const response = await axios.get(
-          "https://restcountries.com/v3.1/all?fields=name,altSpellings,shortName,capital,currencies,region,subregion,continents,population,borders,flags"
+          "https://restcountries.com/v3.1/all?fields=name,altSpellings,cca2,cca3,shortName,capital,currencies,region,subregion,continents,population,borders,flags"
         );
         console.log(response, "mevar");
         // console.log(response.data[0].currencies, "mevar");
@@ -159,7 +159,7 @@ const LocationComponent = () => {
             name: airport.name,
           })
         );
-        console.log("Formatted Airports:", formattedAirports);
+        // console.log("Formatted Airports:", formattedAirports);
 
         setAirportsInfo(formattedAirports); // Set the state after formatting the data
       } catch (error) {

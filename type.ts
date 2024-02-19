@@ -4,6 +4,8 @@ export interface CountryType {
     official: string;
   };
   shortName?: string;
+  cca2: string;
+  cca3: string;
   altSpellings: string;
   flag?: string;
   capital?: string;
