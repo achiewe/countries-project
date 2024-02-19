@@ -3,31 +3,33 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select"; // Import SelectChangeEvent
 import styled from "styled-components";
 import { useCountryStore } from "../../store";
+import { useNavigate } from "react-router-dom";
 
 // InputCountry function
 export default function InputCountry() {
   const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
   const setCountry = useCountryStore((state) => state.setCountry);
   const setShortCountry = useCountryStore((state) => state.setShortCountry);
-  const country = useCountryStore((state) => state.country);
+  const navigate = useNavigate();
 
+  const country = useCountryStore((state) => state.country);
   const allCountries = useCountryStore((state) => state.allCountries);
+  // to take the country name and take short name
   const handelCountryChange = (e: SelectChangeEvent<string>): void => {
     const selectedCountryInfo = allCountries.find(
       (countries) => countries.name.common === e.target.value
     );
 
-    // Check if selectedCountryInfo is defined before setting
     if (selectedCountryInfo) {
       setCountry(e.target.value);
       setCountryInfo([selectedCountryInfo]);
       setShortCountry(selectedCountryInfo.altSpellings);
-
-      // Wrap selectedCountryInfo in an array
+      const shortName = selectedCountryInfo.altSpellings;
+      navigate(`/Countries/${shortName}`);
     } else {
-      setCountry(""); // Reset selected country if not found
-      setCountryInfo(null); // Set country info to null
-      // setshortCountry(shortCountry, "erroria");
+      setCountry("");
+      setCountryInfo(null);
+      setShortCountry("");
     }
   };
 

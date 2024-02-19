@@ -13,10 +13,14 @@ import LocationComponent from "./components/CachePermission";
 import Header from "./components/Header";
 import CurrencyExchange from "./page/CurrencyExchange";
 import Airports from "./page/Airports";
+import { useCountryStore } from "./store";
 
 const queryClient = new QueryClient();
 
 function App(): JSX.Element {
+  const shortCountryName = useCountryStore((state) => state.shortCountry);
+  console.log(shortCountryName);
+
   return (
     <Router>
       <QueryClientProvider client={queryClient}>
@@ -24,11 +28,15 @@ function App(): JSX.Element {
           <GlobalStyles />
           <Header />
           <Routes>
-            <Route
-              path="/"
-              element={<Navigate to={`/Countries/:name`} replace />}
-            />
-            <Route path="/Countries/:name" element={<Home />} />
+            {shortCountryName && (
+              <Route
+                path="/"
+                element={
+                  <Navigate to={`/Countries/${shortCountryName}`} replace />
+                }
+              />
+            )}
+            <Route path={`/Countries/${shortCountryName}`} element={<Home />} />
             <Route
               path="/Countries/:name/Currency"
               element={<CurrencyExchange />}
@@ -61,4 +69,5 @@ const MainContainer = styled.div`
     padding: 0;
   }
 `;
+
 export default App;

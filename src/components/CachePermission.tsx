@@ -42,9 +42,22 @@ const LocationComponent = () => {
       );
       if (countryResult) {
         const countryName = countryResult.address_components[3];
-        setCountry(countryName.long_name);
-        setShortCountry(countryName.short_name);
-        handleCountryInfo(countryName.long_name);
+        console.log(countryName);
+        setCountry(
+          countryName.long_name === "Tbilisi"
+            ? "Georgia"
+            : countryName.long_name
+        );
+        setShortCountry(
+          countryName.short_name === "Tbilisi" || "Georgia"
+            ? "GEO"
+            : countryName.long_name
+        );
+        handleCountryInfo(
+          countryName.long_name === "Tbilisi"
+            ? "Georgia"
+            : countryName.long_name
+        );
       }
     }
   };
@@ -59,7 +72,7 @@ const LocationComponent = () => {
         // console.log(response.data[0].currencies, "mevar");
         const data = response.data.map((country: CountryType) => {
           // Extracting currency information
-          const currencies = country.currencies
+          const currency = country.currencies
             ? Object.keys(country.currencies).map((currencyCode: any) => ({
                 name: country.currencies![currencyCode].name,
                 symbol: country.currencies![currencyCode].symbol,
@@ -73,7 +86,7 @@ const LocationComponent = () => {
             },
             altSpellings: country.altSpellings[0],
             capital: country.capital,
-            currencies: currencies.length > 0 ? currencies : undefined,
+            currencies: currency.length > 0 ? currency : undefined,
             region: country.region,
             subregion: country.subregion,
             continents: country.continents?.[0],
