@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useCountryStore } from "../store";
-import CountryType from "../../type";
-import AirportType from "../../type";
+import { CountryType, AirportsType } from "../../type";
 import axios from "axios";
 import { useQuery } from "react-query";
 const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
@@ -12,12 +11,16 @@ const LocationComponent = () => {
   const country = useCountryStore((state) => state.country);
   const shortCountry = useCountryStore((state) => state.shortCountry);
   const allCountries = useCountryStore((state) => state.allCountries);
+  const airportsInfo = useCountryStore((state) => state.airportsInfo);
 
   //bring the set states in the component
   const setCountry = useCountryStore((state) => state.setCountry);
   const setShortCountry = useCountryStore((state) => state.setShortCountry);
   const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
+  const setAirportsInfo = useCountryStore((state) => state.setAirportsInfo);
+
+  console.log(airportsInfo, "airportsINfo varrrrr");
 
   // user accept to share location
   const handleCountryInfo = (selectedCountry: string): void => {
@@ -146,10 +149,13 @@ const LocationComponent = () => {
             headers: { "X-Api-Key": airportsApiKey },
           }
         );
+
+        const data = response.data;
+        setAirportsInfo(data);
         // Extracting only required properties from the response data
-        const formattedAirports: AirportType[] = response.data.map(
-          (airport: AirportType[]) => ({
-            city: airport.city,
+        const formattedAirports: AirportsType[] = airportsInfo.map(
+          (airport: AirportsType) => ({
+            city: airport,
             iata: airport.iata,
             name: airport.name,
           })
