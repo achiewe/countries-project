@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useCountryStore } from "../store";
 import CountryType from "../../type";
 import axios from "axios";
+import { useQuery } from "react-query";
+const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
 
 const LocationComponent = () => {
   // bring the states in the component
@@ -133,6 +135,12 @@ const LocationComponent = () => {
 
     getLocation();
   }, [allCountries]);
+
+  const { data:airports, isLoading:airportsLoading } = useQuery(
+    const fetchAirportsData = async() => {
+      const response = await axios.get("https://api.api-ninjas.com/v1/airports?country=") 
+    }
+  );
 
   return (
     <div>
