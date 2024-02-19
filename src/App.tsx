@@ -13,7 +13,6 @@ import LocationComponent from "./components/CachePermission";
 import Header from "./components/Header";
 import CurrencyExchange from "./page/CurrencyExchange";
 import Airports from "./page/Airports";
-import { useCountryStore } from "./store";
 
 const queryClient = new QueryClient();
 
