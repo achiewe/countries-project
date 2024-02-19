@@ -18,7 +18,6 @@ import { useCountryStore } from "./store";
 const queryClient = new QueryClient();
 
 function App(): JSX.Element {
-  const shortCountryName = useCountryStore((state) => state.shortCountry);
   return (
     <Router>
       <QueryClientProvider client={queryClient}>
