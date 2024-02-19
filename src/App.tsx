@@ -28,9 +28,7 @@ function App(): JSX.Element {
           <Routes>
             <Route
               path="/"
-              element={
-                <Navigate to={`/Countries/${shortCountryName}`} replace />
-              }
+              element={<Navigate to={`/Countries/:name`} replace />}
             />
             <Route path="/Countries/:name" element={<Home />} />
             <Route
