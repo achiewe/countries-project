@@ -14,6 +14,7 @@ export default function AirportsList() {
     airportsQueryKey,
     async () => {
       try {
+        console.log(allCountries[0].cca2, "me var ak mtavariiii"); // <-- Here
         const response = await axios.get(
           `https://api.api-ninjas.com/v1/airports?country=${allCountries[0].cca2}&fields=city,iata,name`,
           {
@@ -40,6 +41,10 @@ export default function AirportsList() {
     }
   );
 
+  if (!airports) {
+    return <div>No airports data available</div>;
+  }
+
   return (
     <AirportsContainer>
       <h1> Airports</h1>
@@ -49,10 +54,13 @@ export default function AirportsList() {
         variant="standard"
       />
       <div className="airportsDiv">
-        <div className="mainDivAirports">
-          <p> asdasdasdasdasd</p>
-          <p> asdasdasdasasdasd</p>
-        </div>
+        <ul>
+          {airports.map((airport: any) => (
+            <li key={airport.iata}>
+              {airport.name} - {airport.city} ({airport.iata})
+            </li>
+          ))}
+        </ul>
       </div>
     </AirportsContainer>
   );
