@@ -19,8 +19,6 @@ const LocationComponent = () => {
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
   const setAirportsInfo = useCountryStore((state) => state.setAirportsInfo);
 
-  console.log(airportsInfo, "airportsINfo varrrrr");
-
   // user accept to share location
   const handleCountryInfo = (selectedCountry: string): void => {
     const selected = allCountries.filter((country) => {
@@ -150,7 +148,6 @@ const LocationComponent = () => {
         );
 
         const data = response.data;
-        console.log("dataa mivige", data);
 
         const formattedAirports: AirportsType[] = data.map(
           (airport: AirportsType) => ({
@@ -161,7 +158,6 @@ const LocationComponent = () => {
         );
 
         setAirportsInfo(formattedAirports); // Set the state after formatting the data
-        console.log(airportsInfo, "mivigee city name iata");
       } catch (error) {
         console.error("Error fetching airports:", error);
         throw error; // Rethrow the error to be handled by the caller
