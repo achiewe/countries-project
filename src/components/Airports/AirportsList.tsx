@@ -44,9 +44,14 @@ export default function AirportsList() {
     return <div>No airports data available</div>;
   }
 
-  // const filterAirportsTitle = airports.name.filter((airport: string) =>
-  //   airport.toLowerCase().includes()
-  // );
+  const filterAirportsTitle =
+    airports && Array.isArray(airports)
+      ? airports.filter((airport: any) =>
+          airport.name.toLowerCase().includes(countryName.toLowerCase())
+        )
+      : [];
+
+  console.log(countryName);
 
   return (
     <AirportsContainer>
@@ -60,16 +65,11 @@ export default function AirportsList() {
       />
       <div className="airportsDiv">
         <ul className="mainDivAirports">
-          {airports.map(
-            (
-              airport: any,
-              index: number // Use index as a fallback key
-            ) => (
-              <li key={index}>
-                {airport.name} - {airport.city} ({airport.iata})
-              </li>
-            )
-          )}
+          {filterAirportsTitle.map((airport: any, index: number) => (
+            <li key={index}>
+              {airport.name} - {airport.city} ({airport.iata})
+            </li>
+          ))}
         </ul>
       </div>
     </AirportsContainer>
