@@ -150,6 +150,7 @@ const LocationComponent = () => {
         );
 
         const data = response.data;
+        console.log(data, "dataaavarr");
 
         const formattedAirports: AirportsType[] = data.map(
           (airport: AirportsType) => ({
