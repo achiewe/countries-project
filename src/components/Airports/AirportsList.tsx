@@ -2,6 +2,9 @@ import { TextField } from "@mui/material";
 import { useQuery } from "react-query";
 import styled from "styled-components";
 import { useCountryStore } from "../../store";
+import axios from "axios";
+import { AirportsType } from "../../../type";
+const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
 
 export default function AirportsList() {
   const allCountries = useCountryStore((state) => state.allCountries);

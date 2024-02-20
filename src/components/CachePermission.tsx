@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { useCountryStore } from "../store";
-import { CountryType, AirportsType } from "../../type";
+import { CountryType } from "../../type";
 import axios from "axios";
-import { useQuery } from "react-query";
-const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
 
 const LocationComponent = () => {
   // bring the states in the component
@@ -135,37 +133,6 @@ const LocationComponent = () => {
 
     getLocation();
   }, [allCountries]);
-
-  const airportsQueryKey = ["cachedAirport", allCountries?.[0]?.cca2];
-  const { data: airports, isLoading: airportsLoading } = useQuery(
-    airportsQueryKey,
-    async () => {
-      try {
-        const response = await axios.get(
-          `https://api.api-ninjas.com/v1/airports?country=${allCountries[0].cca2}&fields=city,iata,name`,
-          {
-            headers: { "X-Api-Key": airportsApiKey },
-          }
-        );
-
-        const data = response.data;
-
-        const formattedAirports = data.map((airport: AirportsType) => ({
-          city: airport.city,
-          iata: airport.iata,
-          name: airport.name,
-        }));
-
-        return formattedAirports;
-      } catch (error) {
-        console.error("Error fetching airports:", error);
-        throw error; // Rethrow the error to be handled by the caller
-      }
-    },
-    {
-      enabled: !!allCountries?.[0]?.cca2,
-    }
-  );
 
   return (
     <div>
