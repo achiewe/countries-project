@@ -36,7 +36,7 @@ function App(): JSX.Element {
                 }
               />
             )}
-            <Route path={`/Countries/${shortCountryName}`} element={<Home />} />
+            <Route path={`/Countries/:name`} element={<Home />} />
             <Route
               path="/Countries/:name/Currency"
               element={<CurrencyExchange />}

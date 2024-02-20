@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useCountryStore } from "../store";
 import { CountryType } from "../../type";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const LocationComponent = () => {
   // bring the states in the component
@@ -16,6 +17,7 @@ const LocationComponent = () => {
   const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
 
+  const navigate = useNavigate();
   // user accept to share location
   const handleCountryInfo = (selectedCountry: string): void => {
     const selected = allCountries.filter((country) => {
@@ -42,6 +44,11 @@ const LocationComponent = () => {
       );
       if (countryResult) {
         const countryName = countryResult.address_components[3];
+        navigate(
+          `/Countries/${
+            countryName.short_name ? "GEO" : countryName.short_name
+          }`
+        );
         setCountry(
           countryName.long_name === "Tbilisi"
             ? "Georgia"
@@ -50,7 +57,7 @@ const LocationComponent = () => {
         setShortCountry(
           countryName.short_name === "Tbilisi" || "Georgia"
             ? "GEO"
-            : countryName.long_name
+            : countryName.short_name
         );
         handleCountryInfo(
           countryName.long_name === "Tbilisi"
