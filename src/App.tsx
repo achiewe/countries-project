@@ -19,7 +19,6 @@ const queryClient = new QueryClient();
 
 function App(): JSX.Element {
   const shortCountryName = useCountryStore((state) => state.shortCountry);
-  console.log(shortCountryName);
 
   return (
     <Router>
