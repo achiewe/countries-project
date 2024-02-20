@@ -7,17 +7,17 @@ import { AirportsType } from "../../../type";
 const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
 
 export default function AirportsList() {
-  const allCountries = useCountryStore((state) => state.allCountries);
+  const countryInfo = useCountryStore((state) => state.countryInfo);
 
-  const airportsQueryKey = ["cachedAirport", allCountries?.[0]?.cca2];
+  const airportsQueryKey = ["cachedAirport", countryInfo?.[0]?.cca2];
   const { data: airports, isLoading: airportsLoading } = useQuery(
     airportsQueryKey,
     async () => {
       try {
-        console.log(allCountries[0].cca2, "me var ak mtavariiii");
+        console.log(countryInfo?.[0]?.cca2, "me var ak mtavariiii");
 
         const response = await axios.get(
-          `https://api.api-ninjas.com/v1/airports?country=${allCountries[0].cca2}&fields=city,iata,name`,
+          `https://api.api-ninjas.com/v1/airports?country=${countryInfo?.[0]?.cca2}&fields=city,iata,name`,
           {
             headers: { "X-Api-Key": airportsApiKey },
           }
@@ -31,7 +31,7 @@ export default function AirportsList() {
       }
     },
     {
-      enabled: !!allCountries?.[0]?.cca2,
+      enabled: !!countryInfo?.[0]?.cca2,
     }
   );
 
