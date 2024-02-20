@@ -31,7 +31,7 @@ const LocationComponent = () => {
   const fetchCountry = async (latitude: number, longitude: number) => {
     const apiKey: string = import.meta.env.VITE_REACT_APP_GOOGLE_API_KEY || "";
 
-    // Replace with your API key
+    // Replace with your API key s
     const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
 
     const response = await fetch(apiUrl);
