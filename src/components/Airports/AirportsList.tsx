@@ -16,7 +16,7 @@ export default function AirportsList() {
       try {
         console.log(allCountries[0].cca2, "me var ak mtavariiii"); // <-- Here
         const response = await axios.get(
-          `https://api.api-ninjas.com/v1/airports?country=${allCountries[0].cca2}&fields=city,iata,name`,
+          `https://api.api-ninjas.com/v1/airports?country=GE&fields=city,iata,name`,
           {
             headers: { "X-Api-Key": airportsApiKey },
           }
@@ -41,6 +41,10 @@ export default function AirportsList() {
     }
   );
 
+  if (airportsLoading) {
+    return <div>Loading...</div>; // Render a loading indicator while fetching data
+  }
+
   if (!airports) {
     return <div>No airports data available</div>;
   }
@@ -54,12 +58,17 @@ export default function AirportsList() {
         variant="standard"
       />
       <div className="airportsDiv">
-        <ul>
-          {airports.map((airport: any) => (
-            <li key={airport.iata}>
-              {airport.name} - {airport.city} ({airport.iata})
-            </li>
-          ))}
+        <ul className="mainDivAirports">
+          {airports.map(
+            (
+              airport: any,
+              index: number // Use index as a fallback key
+            ) => (
+              <li key={index}>
+                {airport.name} - {airport.city} ({airport.iata})
+              </li>
+            )
+          )}
         </ul>
       </div>
     </AirportsContainer>
@@ -79,14 +88,9 @@ const AirportsContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     justify-content: center;
     width: 100%;
-
-    @media (min-width: 768px) {
-      flex-direction: row;
-      gap: 100px;
-    }
   }
 
   p {
