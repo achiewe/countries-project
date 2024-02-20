@@ -47,7 +47,6 @@ const LocationComponent = () => {
       );
       if (countryResult) {
         const countryName = countryResult.address_components[3];
-        console.log(countryName);
         setCountry(
           countryName.long_name === "Tbilisi"
             ? "Georgia"
@@ -73,7 +72,6 @@ const LocationComponent = () => {
         const response = await axios.get(
           "https://restcountries.com/v3.1/all?fields=name,altSpellings,cca2,cca3,shortName,capital,currencies,region,subregion,continents,population,borders,flags"
         );
-        console.log(response, "mevar");
 
         const data = response.data.map((country: CountryType) => {
           // Extracting currency information
@@ -150,7 +148,6 @@ const LocationComponent = () => {
             headers: { "X-Api-Key": airportsApiKey },
           }
         );
-        console.log(allCountries, "shortivarrr");
 
         const data = response.data;
 
@@ -161,7 +158,6 @@ const LocationComponent = () => {
             name: airport.name,
           })
         );
-        // console.log("Formatted Airports:", formattedAirports);
 
         setAirportsInfo(formattedAirports); // Set the state after formatting the data
       } catch (error) {
