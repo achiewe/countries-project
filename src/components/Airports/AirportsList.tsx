@@ -14,23 +14,17 @@ export default function AirportsList() {
     airportsQueryKey,
     async () => {
       try {
-        console.log(allCountries[0].cca2, "me var ak mtavariiii"); // <-- Here
+        console.log(allCountries[0].cca2, "me var ak mtavariiii");
+
         const response = await axios.get(
-          `https://api.api-ninjas.com/v1/airports?country=GE&fields=city,iata,name`,
+          `https://api.api-ninjas.com/v1/airports?country=${allCountries[0].cca2}&fields=city,iata,name`,
           {
             headers: { "X-Api-Key": airportsApiKey },
           }
         );
 
-        const data = response.data;
-
-        const formattedAirports = data.map((airport: AirportsType) => ({
-          city: airport.city,
-          iata: airport.iata,
-          name: airport.name,
-        }));
-
-        return formattedAirports;
+        // Filter out airports with empty IATA codes
+        return response.data.filter((item: any) => item.iata !== "");
       } catch (error) {
         console.error("Error fetching airports:", error);
         throw error; // Rethrow the error to be handled by the caller
