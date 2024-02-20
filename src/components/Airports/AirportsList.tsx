@@ -4,9 +4,11 @@ import styled from "styled-components";
 import { useCountryStore } from "../../store";
 import axios from "axios";
 import { AirportsType } from "../../../type";
+import { useState } from "react";
 const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
 
 export default function AirportsList() {
+  const [countryName, setCountryName] = useState<string>("");
   const countryInfo = useCountryStore((state) => state.countryInfo);
 
   const airportsQueryKey = ["cachedAirport", countryInfo?.[0]?.cca2];
@@ -42,6 +44,10 @@ export default function AirportsList() {
     return <div>No airports data available</div>;
   }
 
+  const filterAirportsTitle = airports.name.filter((airport: string) =>
+    airport.toLowerCase().includes()
+  );
+
   return (
     <AirportsContainer>
       <h1> Airports</h1>
@@ -49,6 +55,8 @@ export default function AirportsList() {
         id="standard-basic"
         label="Search for Airport"
         variant="standard"
+        value={}
+        onChange={() => {}}
       />
       <div className="airportsDiv">
         <ul className="mainDivAirports">
