@@ -91,6 +91,8 @@ const LocationComponent = () => {
             },
             altSpellings: country.altSpellings[0],
             capital: country.capital,
+            cca2: country.cca2,
+            cca3: country.cca3,
             currencies: currency.length > 0 ? currency : undefined,
             region: country.region,
             subregion: country.subregion,
@@ -148,9 +150,9 @@ const LocationComponent = () => {
             headers: { "X-Api-Key": airportsApiKey },
           }
         );
+        console.log(allCountries, "shortivarrr");
 
         const data = response.data;
-        console.log(data, "dataaavarr");
 
         const formattedAirports: AirportsType[] = data.map(
           (airport: AirportsType) => ({
