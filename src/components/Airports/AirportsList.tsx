@@ -44,9 +44,9 @@ export default function AirportsList() {
     return <div>No airports data available</div>;
   }
 
-  const filterAirportsTitle = airports.name.filter((airport: string) =>
-    airport.toLowerCase().includes()
-  );
+  // const filterAirportsTitle = airports.name.filter((airport: string) =>
+  //   airport.toLowerCase().includes()
+  // );
 
   return (
     <AirportsContainer>
@@ -55,8 +55,8 @@ export default function AirportsList() {
         id="standard-basic"
         label="Search for Airport"
         variant="standard"
-        value={}
-        onChange={() => {}}
+        value={countryName}
+        onChange={(e: any) => setCountryName(e.target.value)}
       />
       <div className="airportsDiv">
         <ul className="mainDivAirports">
