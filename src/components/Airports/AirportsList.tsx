@@ -24,7 +24,7 @@ export default function AirportsList() {
         );
 
         // Filter out airports with empty IATA codes
-        return response.data.filter((item: any) => item.iata !== "");
+        return response.data.filter((item: AirportsType) => item.iata !== "");
       } catch (error) {
         console.error("Error fetching airports:", error);
         throw error; // Rethrow the error to be handled by the caller
