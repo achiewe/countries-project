@@ -150,6 +150,7 @@ const LocationComponent = () => {
         );
 
         const data = response.data;
+        console.log("dataa mivige", data);
 
         const formattedAirports: AirportsType[] = data.map(
           (airport: AirportsType) => ({
@@ -160,6 +161,7 @@ const LocationComponent = () => {
         );
 
         setAirportsInfo(formattedAirports); // Set the state after formatting the data
+        console.log(airportsInfo, "mivigee city name iata");
       } catch (error) {
         console.error("Error fetching airports:", error);
         throw error; // Rethrow the error to be handled by the caller
