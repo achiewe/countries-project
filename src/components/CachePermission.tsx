@@ -150,7 +150,7 @@ const LocationComponent = () => {
 
         const data = response.data;
 
-        const formattedAirports = data.map((airport: any) => ({
+        const formattedAirports = data.map((airport: AirportsType) => ({
           city: airport.city,
           iata: airport.iata,
           name: airport.name,

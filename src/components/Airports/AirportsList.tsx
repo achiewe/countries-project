@@ -1,7 +1,42 @@
 import { TextField } from "@mui/material";
+import { useQuery } from "react-query";
 import styled from "styled-components";
+import { useCountryStore } from "../../store";
 
 export default function AirportsList() {
+  const allCountries = useCountryStore((state) => state.allCountries);
+
+  const airportsQueryKey = ["cachedAirport", allCountries?.[0]?.cca2];
+  const { data: airports, isLoading: airportsLoading } = useQuery(
+    airportsQueryKey,
+    async () => {
+      try {
+        const response = await axios.get(
+          `https://api.api-ninjas.com/v1/airports?country=${allCountries[0].cca2}&fields=city,iata,name`,
+          {
+            headers: { "X-Api-Key": airportsApiKey },
+          }
+        );
+
+        const data = response.data;
+
+        const formattedAirports = data.map((airport: AirportsType) => ({
+          city: airport.city,
+          iata: airport.iata,
+          name: airport.name,
+        }));
+
+        return formattedAirports;
+      } catch (error) {
+        console.error("Error fetching airports:", error);
+        throw error; // Rethrow the error to be handled by the caller
+      }
+    },
+    {
+      enabled: !!allCountries?.[0]?.cca2,
+    }
+  );
+
   return (
     <AirportsContainer>
       <h1> Airports</h1>
