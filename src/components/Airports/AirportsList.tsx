@@ -8,7 +8,6 @@ const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
 
 export default function AirportsList() {
   const countryInfo = useCountryStore((state) => state.countryInfo);
-  const setCountry = useCountryStore((state) => state.setCountry);
 
   const airportsQueryKey = ["cachedAirport", countryInfo?.[0]?.cca2];
   const { data: airports, isLoading: airportsLoading } = useQuery(
