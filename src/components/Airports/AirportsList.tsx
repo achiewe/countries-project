@@ -67,7 +67,7 @@ export default function AirportsList() {
       />
       <div className="airportsDiv">
         <ul className="mainDivAirports">
-          {filterAirportsTitle.map((airport: any, index: number) => (
+          {filterAirportsTitle.map((airport: AirportsType, index: number) => (
             <li key={index}>
               {airport.name} - {airport.city} ({airport.iata})
             </li>
