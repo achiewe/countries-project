@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useCountryStore } from "../store";
 import { CountryType, AirportsType } from "../../type";
 import axios from "axios";
+import { useQuery } from "react-query";
 const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
 
 const LocationComponent = () => {
@@ -10,14 +11,12 @@ const LocationComponent = () => {
   const country = useCountryStore((state) => state.country);
   const shortCountry = useCountryStore((state) => state.shortCountry);
   const allCountries = useCountryStore((state) => state.allCountries);
-  const airportsInfo = useCountryStore((state) => state.airportsInfo);
 
   //bring the set states in the component
   const setCountry = useCountryStore((state) => state.setCountry);
   const setShortCountry = useCountryStore((state) => state.setShortCountry);
   const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
-  const setAirportsInfo = useCountryStore((state) => state.setAirportsInfo);
 
   // user accept to share location
   const handleCountryInfo = (selectedCountry: string): void => {
@@ -137,8 +136,10 @@ const LocationComponent = () => {
     getLocation();
   }, [allCountries]);
 
-  useEffect(() => {
-    const fetchAirports = async () => {
+  const airportsQueryKey = ["cachedAirport", allCountries?.[0]?.cca2];
+  const { data: airports, isLoading: airportsLoading } = useQuery(
+    airportsQueryKey,
+    async () => {
       try {
         const response = await axios.get(
           `https://api.api-ninjas.com/v1/airports?country=${allCountries[0].cca2}&fields=city,iata,name`,
@@ -149,23 +150,23 @@ const LocationComponent = () => {
 
         const data = response.data;
 
-        const formattedAirports: AirportsType[] = data.map(
-          (airport: AirportsType) => ({
-            city: airport.city,
-            iata: airport.iata,
-            name: airport.name,
-          })
-        );
+        const formattedAirports = data.map((airport: any) => ({
+          city: airport.city,
+          iata: airport.iata,
+          name: airport.name,
+        }));
 
-        setAirportsInfo(formattedAirports); // Set the state after formatting the data
+        return formattedAirports;
       } catch (error) {
         console.error("Error fetching airports:", error);
         throw error; // Rethrow the error to be handled by the caller
       }
-    };
+    },
+    {
+      enabled: !!allCountries?.[0]?.cca2,
+    }
+  );
 
-    fetchAirports();
-  }, []);
   return (
     <div>
       {location ? (
