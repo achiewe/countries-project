@@ -8,12 +8,14 @@ const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
 
 export default function AirportsList() {
   const countryInfo = useCountryStore((state) => state.countryInfo);
+  const setCountry = useCountryStore((state) => state.setCountry);
 
   const airportsQueryKey = ["cachedAirport", countryInfo?.[0]?.cca2];
   const { data: airports, isLoading: airportsLoading } = useQuery(
     airportsQueryKey,
     async () => {
       try {
+        console.log("gaigzavna funqciaa");
         const response = await axios.get(
           `https://api.api-ninjas.com/v1/airports?country=${countryInfo?.[0]?.cca2}&fields=city,iata,name`,
           {
@@ -62,6 +64,20 @@ export default function AirportsList() {
             )
           )}
         </ul>
+        <button
+          onClick={() => {
+            setCountry("Germany");
+          }}
+        >
+          asaa
+        </button>
+        <button
+          onClick={() => {
+            setCountry("Georgia");
+          }}
+        >
+          data
+        </button>
       </div>
     </AirportsContainer>
   );
