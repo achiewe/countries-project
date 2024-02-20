@@ -64,20 +64,6 @@ export default function AirportsList() {
             )
           )}
         </ul>
-        <button
-          onClick={() => {
-            setCountry("Germany");
-          }}
-        >
-          asaa
-        </button>
-        <button
-          onClick={() => {
-            setCountry("Georgia");
-          }}
-        >
-          data
-        </button>
       </div>
     </AirportsContainer>
   );
