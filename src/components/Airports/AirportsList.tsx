@@ -61,7 +61,9 @@ export default function AirportsList() {
         label="Search for Airport"
         variant="standard"
         value={countryName}
-        onChange={(e: any) => setCountryName(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setCountryName(e.target.value)
+        }
       />
       <div className="airportsDiv">
         <ul className="mainDivAirports">
