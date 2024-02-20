@@ -4,9 +4,14 @@ import { useCountryStore } from "../../store";
 export default function CountryInfo() {
   const countryInfo = useCountryStore((state) => state.countryInfo);
 
-  // Check if countryInfo is null or undefined
-  if (!countryInfo) {
-    return <div>Loading...</div>; // Return a loading indicator or handle null case
+  // Check if countryInfo is null, undefined, or empty
+  if (!countryInfo || countryInfo.length === 0) {
+    return <div>Loading...</div>; // Return a loading indicator or handle null/empty case
+  }
+
+  // Check if the first element of countryInfo has currencies property
+  if (!countryInfo[0].currencies) {
+    return <div>No currency information available.</div>;
   }
 
   const currency = countryInfo[0].currencies;

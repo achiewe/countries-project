@@ -75,6 +75,8 @@ const AirportsContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 30px;
+  min-width: 300px;
+  max-width: 300px;
 
   .mainDivAirports {
     display: flex;
@@ -82,7 +84,8 @@ const AirportsContainer = styled.div`
     align-items: center;
     gap: 10px;
     justify-content: center;
-    width: 100%;
+    min-width: 300px;
+    max-width: 300px;
   }
 
   p {
@@ -90,5 +93,7 @@ const AirportsContainer = styled.div`
     display: inline;
     font-style: "normal";
     font-weight: 600;
+    min-width: 300px;
+    max-width: 300px;
   }
 `;
