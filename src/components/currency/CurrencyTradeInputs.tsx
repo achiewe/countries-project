@@ -8,8 +8,8 @@ export default function CurrencyTradeInputs() {
 
       <svg
         fill="#000000"
-        height="800px"
-        width="800px"
+        height="20px"
+        width="20px"
         version="1.1"
         id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ const ContainerCurrencyInputs = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   gap: 30px;
 `;

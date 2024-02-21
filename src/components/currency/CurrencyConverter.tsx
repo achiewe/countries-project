@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { SelectChangeEvent } from "@mui/material/Select";
 import { useCountryStore } from "../../store";
 import { useNavigate } from "react-router-dom";
+import { fetchCurrencyInfo } from "./FetchCurrency";
 
 export default function CurrencyConverter() {
   const country = useCountryStore((state) => state.country);
@@ -31,6 +32,8 @@ export default function CurrencyConverter() {
       setShortCountry("");
     }
   };
+
+  fetchCurrencyInfo();
 
   return (
     <ConverterConatiner>
