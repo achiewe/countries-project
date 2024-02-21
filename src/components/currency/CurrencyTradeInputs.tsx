@@ -1,3 +1,3 @@
-export default function CurrencyTradeInput() {
+export default function CurrencyTradeInputs() {
   return <div>CurrencyExchange</div>;
 }

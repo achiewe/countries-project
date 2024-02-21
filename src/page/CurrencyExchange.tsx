@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import CurrencyConverter from "../components/currency/CurrencyConverter";
+import CurrencyTradeInputs from "../components/currency/CurrencyTradeInputs";
 
 export default function CurrencyExchange() {
   return (
     <CurrencyContainer>
       <CurrencyConverter />
+      <CurrencyTradeInputs />
     </CurrencyContainer>
   );
 }
