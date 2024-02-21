@@ -93,12 +93,12 @@ const AirportsContainer = styled.div`
     align-items: flex-start;
     gap: 10px;
     justify-content: flex-start;
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 300px;
+    max-width: 300px;
 
     @media (min-width: 768px) {
-      min-width: 350px;
-      max-width: 350px;
+      min-width: 500px;
+      max-width: 500px;
     }
   }
 
