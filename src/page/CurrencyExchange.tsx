@@ -21,5 +21,5 @@ const CurrencyContainer = styled.div`
   align-items: center;
   border-radius: 5px;
   border: 1px solid grey;
-  padding: 30px 0;
+  padding: 30px 20px;
 `;
