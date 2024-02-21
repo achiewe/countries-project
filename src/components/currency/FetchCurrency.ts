@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import { useCountryStore } from "../../store";
 import axios from "axios";
+const currencyApiKey = import.meta.env.VITE_REACT_APP_EXCHANGE_API_KEY;
 
 export const fetchCurrencyInfo = async () => {
   const countryInfo = useCountryStore((state) => state.countryInfo);
@@ -11,9 +12,13 @@ export const fetchCurrencyInfo = async () => {
     async () => {
       try {
         const response = await axios.get(
-          "https://api.exchangerate.host/convert?from=USD&to=GBP"
+          "https://api.exchangerate.host/convert?from=USD&to=GBP",
+
+          {
+            headers: { "X-Api-Key": currencyApiKey },
+          }
         );
-        console.log(response.data.result);
+        console.log(response.data.result, "me var ak usd sds");
         return response.data.result;
       } catch (error) {}
     }
