@@ -70,9 +70,17 @@ export default function CurrencyConverter() {
             id="demo-simple-select-standard"
             label="country"
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {allCountries.map(
+              (country) =>
+                country.name && (
+                  <MenuItem
+                    key={country.name.common}
+                    value={country.name.common}
+                  >
+                    {country.name.common}
+                  </MenuItem>
+                )
+            )}
           </Select>
         </FormControl>
       </div>
