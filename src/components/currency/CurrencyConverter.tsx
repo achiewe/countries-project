@@ -72,8 +72,9 @@ export default function CurrencyConverter() {
             labelId="demo-simple-select-standard-label"
             id="demo-simple-select-standard"
             label="country"
+            value=""
           >
-            {allCountries.map(
+            {/* {allCountries.map(
               (country) =>
                 country.name && (
                   <MenuItem
@@ -83,7 +84,7 @@ export default function CurrencyConverter() {
                     {country.name.common}
                   </MenuItem>
                 )
-            )}
+            )} */}
           </Select>
         </FormControl>
       </div>
