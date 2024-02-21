@@ -90,11 +90,16 @@ const AirportsContainer = styled.div`
   .mainDivAirports {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
-    justify-content: center;
+    justify-content: flex-start;
     min-width: 250px;
     max-width: 250px;
+
+    @media (min-width: 768px) {
+      min-width: 350px;
+      max-width: 350px;
+    }
   }
 
   p {
