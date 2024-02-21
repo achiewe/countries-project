@@ -4,8 +4,7 @@ import axios from "axios";
 const currencyApiKey = import.meta.env.VITE_REACT_APP_EXCHANGE_API_KEY;
 
 export const fetchCurrencyInfo = async () => {
-  const countryInfo = useCountryStore((state) => state.countryInfo);
-
+  // const countryInfo = useCountryStore((state) => state.countryInfo);
   // const CurrencyQueryKey = ["cachedCurrency", countryInfo?.[0]?.name];
   // const { data: currency, isLoading: currencyLoading } = useQuery(
   //   CurrencyQueryKey,
@@ -13,7 +12,6 @@ export const fetchCurrencyInfo = async () => {
   //     try {
   //       const response = await axios.get(
   //         "http://localhost:3000/api/convert?from=USD&to=GBP",
-
   //         {
   //           headers: { "X-Api-Key": currencyApiKey },
   //         }
@@ -23,6 +21,5 @@ export const fetchCurrencyInfo = async () => {
   //     } catch (error) {}
   //   }
   // );
-
   // return currencyLoading;
 };
