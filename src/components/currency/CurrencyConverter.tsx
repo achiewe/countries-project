@@ -1,7 +1,37 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import styled from "styled-components";
+import { SelectChangeEvent } from "@mui/material/Select";
+import { useCountryStore } from "../../store";
+import { useNavigate } from "react-router-dom";
 
 export default function CurrencyConverter() {
+  const country = useCountryStore((state) => state.country);
+
+  const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
+  const setCountry = useCountryStore((state) => state.setCountry);
+  const setShortCountry = useCountryStore((state) => state.setShortCountry);
+  const navigate = useNavigate();
+
+  const allCountries = useCountryStore((state) => state.allCountries);
+
+  const handelCountryChange = (e: SelectChangeEvent<string>): void => {
+    const selectedCountryInfo = allCountries.find(
+      (countries) => countries.name.common === e.target.value
+    );
+
+    if (selectedCountryInfo) {
+      setCountry(e.target.value);
+      setCountryInfo([selectedCountryInfo]);
+      setShortCountry(selectedCountryInfo.altSpellings);
+      const shortName = selectedCountryInfo.altSpellings;
+      navigate(`/Countries/${shortName}/Currency`);
+    } else {
+      setCountry("");
+      setCountryInfo(null);
+      setShortCountry("");
+    }
+  };
+
   return (
     <ConverterConatiner>
       <h1> Currency Exchange</h1>
@@ -14,12 +44,23 @@ export default function CurrencyConverter() {
             labelId="demo-simple-select-standard-label"
             id="demo-simple-select-standard"
             label="country"
+            value={country}
+            onChange={handelCountryChange}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {allCountries.map(
+              (country) =>
+                country.name && (
+                  <MenuItem
+                    key={country.name.common}
+                    value={country.name.common}
+                  >
+                    {country.name.common}
+                  </MenuItem>
+                )
+            )}
           </Select>
         </FormControl>
+
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
           <InputLabel id="demo-simple-select-standard-label">
             country
