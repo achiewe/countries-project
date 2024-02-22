@@ -6,35 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { fetchCurrencyInfo } from "./FetchCurrency";
 
 export default function CurrencyConverter() {
-  const country = useCountryStore((state) => state.country);
-
-  const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
-  const setCountry = useCountryStore((state) => state.setCountry);
-  const setShortCountry = useCountryStore((state) => state.setShortCountry);
-  const navigate = useNavigate();
-
-  const allCountries = useCountryStore((state) => state.allCountries);
-
-  const handelCountryChange = (e: SelectChangeEvent<string>): void => {
-    const selectedCountryInfo = allCountries.find(
-      (countries) => countries.name.common === e.target.value
-    );
-
-    if (selectedCountryInfo) {
-      setCountry(e.target.value);
-      setCountryInfo([selectedCountryInfo]);
-      setShortCountry(selectedCountryInfo.altSpellings);
-      const shortName = selectedCountryInfo.altSpellings;
-      navigate(`/Countries/${shortName}/Currency`);
-    } else {
-      setCountry("");
-      setCountryInfo(null);
-      setShortCountry("");
-    }
-  };
-
-  fetchCurrencyInfo();
-
   return (
     <ConverterConatiner>
       <h1> Currency Exchange</h1>
@@ -49,19 +20,7 @@ export default function CurrencyConverter() {
             label="country"
             value={country}
             onChange={handelCountryChange}
-          >
-            {allCountries.map(
-              (country) =>
-                country.name && (
-                  <MenuItem
-                    key={country.name.common}
-                    value={country.name.common}
-                  >
-                    {country.name.common}
-                  </MenuItem>
-                )
-            )}
-          </Select>
+          ></Select>
         </FormControl>
 
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
