@@ -18,8 +18,6 @@ export default function CurrencyConverter() {
             labelId="demo-simple-select-standard-label"
             id="demo-simple-select-standard"
             label="country"
-            value={country}
-            onChange={handelCountryChange}
           ></Select>
         </FormControl>
 
