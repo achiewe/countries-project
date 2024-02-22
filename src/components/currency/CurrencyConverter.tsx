@@ -26,7 +26,9 @@ export default function CurrencyConverter() {
             id="demo-simple-select-standard"
             label="country"
             value=""
-          ></Select>
+          >
+            <MenuItem></MenuItem>
+          </Select>
         </FormControl>
       </div>
       <div className="currencyExchangeDiv"></div>
