@@ -1,9 +1,5 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import styled from "styled-components";
-import { SelectChangeEvent } from "@mui/material/Select";
-import { useCountryStore } from "../../store";
-import { useNavigate } from "react-router-dom";
-import { fetchCurrencyInfo } from "./FetchCurrency";
 
 export default function CurrencyConverter() {
   return (
@@ -30,19 +26,7 @@ export default function CurrencyConverter() {
             id="demo-simple-select-standard"
             label="country"
             value=""
-          >
-            {/* {allCountries.map(
-              (country) =>
-                country.name && (
-                  <MenuItem
-                    key={country.name.common}
-                    value={country.name.common}
-                  >
-                    {country.name.common}
-                  </MenuItem>
-                )
-            )} */}
-          </Select>
+          ></Select>
         </FormControl>
       </div>
       <div className="currencyExchangeDiv"></div>
