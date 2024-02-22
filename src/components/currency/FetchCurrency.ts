@@ -11,7 +11,7 @@ export const fetchCurrencyInfo = async () => {
     async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/convert?from=USD&to=GBP",
+          "http://localhost:5173/api/convert?from=USD&to=GBP",
           {
             headers: { "X-Api-Key": currencyApiKey },
           }
