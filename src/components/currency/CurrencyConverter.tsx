@@ -15,10 +15,10 @@ export default function CurrencyConverter() {
             id="demo-simple-select-standard"
             label="country"
           >
-            <MenuItem>₾</MenuItem>
-            <MenuItem>$</MenuItem>
-            <MenuItem>£</MenuItem>
-            <MenuItem>€</MenuItem>
+            <MenuItem value="₾">₾</MenuItem>
+            <MenuItem value="$">$</MenuItem>
+            <MenuItem value="£">£</MenuItem>
+            <MenuItem value="€">€</MenuItem>
           </Select>
         </FormControl>
 
@@ -31,10 +31,10 @@ export default function CurrencyConverter() {
             id="demo-simple-select-standard"
             label="country"
           >
-            <MenuItem>₾</MenuItem>
-            <MenuItem>$</MenuItem>
-            <MenuItem>£</MenuItem>
-            <MenuItem>€</MenuItem>
+            <MenuItem value="₾">₾</MenuItem>
+            <MenuItem value="$">$</MenuItem>
+            <MenuItem value="£">£</MenuItem>
+            <MenuItem value="€">€</MenuItem>
           </Select>
         </FormControl>
       </div>
