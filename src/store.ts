@@ -8,6 +8,8 @@ type CountryStore = {
   countryInfo: CountryType[] | null;
   airportsInfo: AirportsType[];
   currencyFrom: string;
+  currencyTo: string;
+  setCurrencyTo: (newCurrency: string) => void;
   setCurrencyFrom: (newCurrency: string) => void;
   setCountryInfo: (newCountry: null | CountryType[]) => void;
   setAirportsInfo: (airports: AirportsType[]) => void;
