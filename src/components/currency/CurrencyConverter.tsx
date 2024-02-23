@@ -1,4 +1,10 @@
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
 import styled from "styled-components";
 import { useCountryStore } from "../../store";
 
@@ -20,6 +26,10 @@ export default function CurrencyConverter() {
             labelId="demo-simple-select-standard-label"
             id="demo-simple-select-standard"
             label="country"
+            value={currencyFrom}
+            onChange={(e: SelectChangeEvent<string>) => {
+              setCurrencyFrom(e.target.value);
+            }}
           >
             <MenuItem value="₾">₾</MenuItem>
             <MenuItem value="$">$</MenuItem>
