@@ -16,9 +16,8 @@ export default function CurrencyConverter() {
             id="demo-simple-select-standard"
             label="country"
           >
-            <MenuItem>
-              <img src={dollarPng} alt="dollar png" />
-            </MenuItem>
+            <MenuItem>₾</MenuItem>
+            <MenuItem>$</MenuItem>
           </Select>
         </FormControl>
 
@@ -63,6 +62,10 @@ const ConverterConatiner = styled.div`
     justify-content: center;
     align-items: center;
     gap: 30px;
+  }
+  .dollarPng {
+    width: 20px;
+    height: 20px;
   }
 
   .currencyExchangeDiv {
