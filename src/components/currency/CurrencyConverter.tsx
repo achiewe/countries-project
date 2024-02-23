@@ -1,7 +1,10 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import styled from "styled-components";
+import { useCountryStore } from "../../store";
 
 export default function CurrencyConverter() {
+  const currencyFrom = useCountryStore((state) => state.currencyFrom);
+
   return (
     <ConverterConatiner>
       <h1> Currency Exchange</h1>
