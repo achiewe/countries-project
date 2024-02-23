@@ -46,6 +46,10 @@ export default function CurrencyConverter() {
             labelId="demo-simple-select-standard-label"
             id="demo-simple-select-standard"
             label="country"
+            value={currencyTo}
+            onChange={(e: SelectChangeEvent<string>) => {
+              setCurrencyTo(e.target.value);
+            }}
           >
             <MenuItem value="₾">₾</MenuItem>
             <MenuItem value="$">$</MenuItem>
