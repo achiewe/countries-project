@@ -8,7 +8,7 @@ export default function CurrencyConverter() {
       <div className="formControlDiv">
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
           <InputLabel id="demo-simple-select-standard-label">
-            country
+            currency
           </InputLabel>
           <Select
             labelId="demo-simple-select-standard-label"
@@ -24,14 +24,17 @@ export default function CurrencyConverter() {
 
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
           <InputLabel id="demo-simple-select-standard-label">
-            country
+            currency
           </InputLabel>
           <Select
             labelId="demo-simple-select-standard-label"
             id="demo-simple-select-standard"
             label="country"
           >
-            <MenuItem></MenuItem>
+            <MenuItem>₾</MenuItem>
+            <MenuItem>$</MenuItem>
+            <MenuItem>£</MenuItem>
+            <MenuItem>€</MenuItem>
           </Select>
         </FormControl>
       </div>
