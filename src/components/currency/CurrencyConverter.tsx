@@ -17,6 +17,7 @@ export default function CurrencyConverter() {
           >
             <MenuItem>₾</MenuItem>
             <MenuItem>$</MenuItem>
+            <MenuItem>£</MenuItem>
           </Select>
         </FormControl>
 
