@@ -1,5 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import styled from "styled-components";
+import dollarPng from "../../../public/assets/dollar.png";
 
 export default function CurrencyConverter() {
   return (
@@ -15,7 +16,9 @@ export default function CurrencyConverter() {
             id="demo-simple-select-standard"
             label="country"
           >
-            <MenuItem></MenuItem>
+            <MenuItem>
+              <img src={dollarPng} alt="dollar png" />
+            </MenuItem>
           </Select>
         </FormControl>
 
