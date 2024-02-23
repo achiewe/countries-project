@@ -1,6 +1,5 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import styled from "styled-components";
-import dollarPng from "../../../public/assets/dollar.png";
 
 export default function CurrencyConverter() {
   return (
