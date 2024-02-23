@@ -22,6 +22,7 @@ export const useCountryStore = create<CountryStore>((set) => ({
   country: "",
   shortCountry: "",
   currencyFrom: "₾",
+  currencyTo: "$",
   allCountries: [],
   airportsInfo: [],
   countryInfo: null,
@@ -36,6 +37,9 @@ export const useCountryStore = create<CountryStore>((set) => ({
   },
   setCurrencyFrom: (newCurrency: string) => {
     set({ currencyFrom: newCurrency });
+  },
+  setCurrencyTo: (newCurrency: string) => {
+    set({ currencyTo: newCurrency });
   },
   setCountryInfo: (newCountry: null | CountryType[]) => {
     set({ countryInfo: newCountry });
