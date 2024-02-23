@@ -4,6 +4,9 @@ import { useCountryStore } from "../../store";
 
 export default function CurrencyConverter() {
   const currencyFrom = useCountryStore((state) => state.currencyFrom);
+  const currencyTo = useCountryStore((state) => state.currencyTo);
+  const setCurrencyFrom = useCountryStore((state) => state.setCurrencyFrom);
+  const setCurrencyTo = useCountryStore((state) => state.setCurrencyTo);
 
   return (
     <ConverterConatiner>
