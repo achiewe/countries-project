@@ -14,7 +14,9 @@ export default function CurrencyConverter() {
             labelId="demo-simple-select-standard-label"
             id="demo-simple-select-standard"
             label="country"
-          ></Select>
+          >
+            <MenuItem></MenuItem>
+          </Select>
         </FormControl>
 
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
