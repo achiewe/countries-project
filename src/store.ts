@@ -7,6 +7,8 @@ type CountryStore = {
   allCountries: CountryType[];
   countryInfo: CountryType[] | null;
   airportsInfo: AirportsType[];
+  currencyFrom: string;
+  setCurrencyFrom: (newCurrency: string) => void;
   setCountryInfo: (newCountry: null | CountryType[]) => void;
   setAirportsInfo: (airports: AirportsType[]) => void;
   setAllCountries: (newCountry: CountryType[]) => void;
@@ -17,6 +19,7 @@ type CountryStore = {
 export const useCountryStore = create<CountryStore>((set) => ({
   country: "",
   shortCountry: "",
+  currencyFrom: "₾",
   allCountries: [],
   airportsInfo: [],
   countryInfo: null,
@@ -28,6 +31,9 @@ export const useCountryStore = create<CountryStore>((set) => ({
   },
   setAllCountries: (newCountry: CountryType[]) => {
     set({ allCountries: newCountry });
+  },
+  setCurrencyFrom: (newCurrency: string) => {
+    set({ currencyFrom: newCurrency });
   },
   setCountryInfo: (newCountry: null | CountryType[]) => {
     set({ countryInfo: newCountry });
