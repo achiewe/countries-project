@@ -4,6 +4,7 @@ import { useCountryStore } from "../../store";
 
 export default function CurrencyTradeInputs() {
   const currencyFrom = useCountryStore((state) => state.currencyFrom);
+  const currencyTo = useCountryStore((state) => state.currencyTo);
   return (
     <ContainerCurrencyInputs>
       <TextField id="standard-basic" label="Standard" variant="standard" />
