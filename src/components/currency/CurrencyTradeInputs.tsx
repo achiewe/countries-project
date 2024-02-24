@@ -11,6 +11,7 @@ export default function CurrencyTradeInputs() {
       <TextField
         id="standard-basic"
         label={`Exchange ${currencyFrom} to ${currencyTo}`}
+        type="number"
         variant="standard"
       />
 
@@ -43,6 +44,7 @@ export default function CurrencyTradeInputs() {
       <TextField
         id="standard-basic"
         label={`Exchange ${currencyFrom} to ${currencyTo}`}
+        type="number"
         variant="standard"
       />
     </ContainerCurrencyInputs>
