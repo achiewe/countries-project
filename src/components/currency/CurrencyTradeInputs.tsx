@@ -6,28 +6,6 @@ export default function CurrencyTradeInputs() {
   const currencyFrom = useCountryStore((state) => state.currencyFrom);
   const currencyTo = useCountryStore((state) => state.currencyTo);
 
-  const exchangeRates = {
-    GEL: {
-      USD: 0.38, // 1 GEL = 0.38 USD
-      EUR: 0.33, // 1 GEL = 0.33 EUR
-      GBP: 0.28, // 1 GEL = 0.28 GBP
-    },
-    USD: {
-      GEL: 2.65, // 1 USD = 2.65 GEL
-      EUR: 0.88, // 1 USD = 0.88 EUR
-      GBP: 0.75, // 1 USD = 0.75 GBP
-    },
-    EUR: {
-      GEL: 3.03, // 1 EUR = 3.03 GEL
-      USD: 1.14, // 1 EUR = 1.14 USD
-      GBP: 0.85, // 1 EUR = 0.85 GBP
-    },
-    GBP: {
-      GEL: 3.54, // 1 GBP = 3.54 GEL
-      USD: 1.33, // 1 GBP = 1.33 USD
-      EUR: 1.18, // 1 GBP = 1.18 EUR
-    },
-  };
   return (
     <ContainerCurrencyInputs>
       <TextField
