@@ -25,7 +25,9 @@ export default function CurrencyConverter() {
             id="from-currency"
             label="From"
             value={currencyFrom}
-            onChange={(e) => setCurrencyFrom(e.target.value)}
+            onChange={(e: SelectChangeEvent<string>) =>
+              setCurrencyFrom(e.target.value)
+            }
           >
             <MenuItem value="₾">₾</MenuItem>
             <MenuItem value="$">$</MenuItem>
@@ -41,7 +43,9 @@ export default function CurrencyConverter() {
             id="to-currency"
             label="To"
             value={currencyTo}
-            onChange={(e) => setCurrencyTo(e.target.value)}
+            onChange={(e: SelectChangeEvent<string>) =>
+              setCurrencyTo(e.target.value)
+            }
           >
             <MenuItem value="₾" disabled={currencyFrom === "₾"}>
               ₾
