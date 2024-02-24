@@ -1,7 +1,9 @@
 import { TextField } from "@mui/material";
 import styled from "styled-components";
+import { useCountryStore } from "../../store";
 
 export default function CurrencyTradeInputs() {
+  const currencyFrom = useCountryStore((state) => state.currencyFrom);
   return (
     <ContainerCurrencyInputs>
       <TextField id="standard-basic" label="Standard" variant="standard" />
