@@ -7,7 +7,11 @@ export default function CurrencyTradeInputs() {
   const currencyTo = useCountryStore((state) => state.currencyTo);
   return (
     <ContainerCurrencyInputs>
-      <TextField id="standard-basic" label="Standard" variant="standard" />
+      <TextField
+        id="standard-basic"
+        label={`Exchange ${currencyFrom} to ${currencyTo}`}
+        variant="standard"
+      />
 
       <svg
         fill="#000000"
@@ -35,7 +39,11 @@ export default function CurrencyTradeInputs() {
           </g>
         </g>
       </svg>
-      <TextField id="standard-basic" label="Standard" variant="standard" />
+      <TextField
+        id="standard-basic"
+        label={`Exchange ${currencyFrom} to ${currencyTo}`}
+        variant="standard"
+      />
     </ContainerCurrencyInputs>
   );
 }
