@@ -19,17 +19,13 @@ export default function CurrencyConverter() {
       <h1> Currency Exchange</h1>
       <div className="formControlDiv">
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel id="demo-simple-select-standard-label">
-            currency
-          </InputLabel>
+          <InputLabel id="from-currency-label">From</InputLabel>
           <Select
-            labelId="demo-simple-select-standard-label"
-            id="demo-simple-select-standard"
-            label="country"
+            labelId="from-currency-label"
+            id="from-currency"
+            label="From"
             value={currencyFrom}
-            onChange={(e: SelectChangeEvent<string>) => {
-              setCurrencyFrom(e.target.value);
-            }}
+            onChange={(e) => setCurrencyFrom(e.target.value)}
           >
             <MenuItem value="₾">₾</MenuItem>
             <MenuItem value="$">$</MenuItem>
@@ -39,26 +35,29 @@ export default function CurrencyConverter() {
         </FormControl>
 
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel id="demo-simple-select-standard-label">
-            currency
-          </InputLabel>
+          <InputLabel id="to-currency-label">To</InputLabel>
           <Select
-            labelId="demo-simple-select-standard-label"
-            id="demo-simple-select-standard"
-            label="country"
+            labelId="to-currency-label"
+            id="to-currency"
+            label="To"
             value={currencyTo}
-            onChange={(e: SelectChangeEvent<string>) => {
-              setCurrencyTo(e.target.value);
-            }}
+            onChange={(e) => setCurrencyTo(e.target.value)}
           >
-            <MenuItem value="₾">₾</MenuItem>
-            <MenuItem value="$">$</MenuItem>
-            <MenuItem value="£">£</MenuItem>
-            <MenuItem value="€">€</MenuItem>
+            <MenuItem value="₾" disabled={currencyFrom === "₾"}>
+              ₾
+            </MenuItem>
+            <MenuItem value="$" disabled={currencyFrom === "$"}>
+              $
+            </MenuItem>
+            <MenuItem value="£" disabled={currencyFrom === "£"}>
+              £
+            </MenuItem>
+            <MenuItem value="€" disabled={currencyFrom === "€"}>
+              €
+            </MenuItem>
           </Select>
         </FormControl>
       </div>
-      <div className="currencyExchangeDiv"></div>
     </ConverterConatiner>
   );
 }
