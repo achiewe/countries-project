@@ -29,10 +29,18 @@ export default function CurrencyConverter() {
               setCurrencyFrom(e.target.value)
             }
           >
-            <MenuItem value="₾">₾</MenuItem>
-            <MenuItem value="$">$</MenuItem>
-            <MenuItem value="£">£</MenuItem>
-            <MenuItem value="€">€</MenuItem>
+            <MenuItem value="₾" disabled={currencyTo === "₾"}>
+              ₾
+            </MenuItem>
+            <MenuItem value="$" disabled={currencyTo === "$"}>
+              $
+            </MenuItem>
+            <MenuItem value="£" disabled={currencyTo === "£"}>
+              £
+            </MenuItem>
+            <MenuItem value="€" disabled={currencyTo === "€"}>
+              €
+            </MenuItem>
           </Select>
         </FormControl>
 
