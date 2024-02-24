@@ -6,20 +6,6 @@ export default function CurrencyTradeInputs() {
   const currencyFrom = useCountryStore((state) => state.currencyFrom);
   const currencyTo = useCountryStore((state) => state.currencyTo);
 
-  const calculateExchange = (amount: any, exchangeRate: any) => {
-    return (amount * exchangeRate).toFixed(2);
-  };
-
-  const exchangeRate = 0.38; // 1 gel is 0.38 usd
-
-  const handleInputChange = (e: any) => {
-    // Convert the input value to the target currency
-    const valueInFromCurrency = parseFloat(e.target.value);
-    const valueInToCurrency = calculateExchange(
-      valueInFromCurrency,
-      exchangeRate
-    );
-  };
   return (
     <ContainerCurrencyInputs>
       <TextField
@@ -27,7 +13,6 @@ export default function CurrencyTradeInputs() {
         label={`Exchange ${currencyFrom} to ${currencyTo}`}
         type="number"
         variant="standard"
-        onChange={handleInputChange}
       />
 
       <svg
@@ -61,7 +46,6 @@ export default function CurrencyTradeInputs() {
         label={`Exchange ${currencyFrom} to ${currencyTo}`}
         type="number"
         variant="standard"
-        value={calculateExchange(1, exchangeRate)}
       />
     </ContainerCurrencyInputs>
   );
