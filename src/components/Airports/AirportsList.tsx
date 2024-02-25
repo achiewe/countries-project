@@ -16,7 +16,6 @@ export default function AirportsList() {
     airportsQueryKey,
     async () => {
       try {
-        console.log("gaigzavna funqciaa");
         const response = await axios.get(
           `https://api.api-ninjas.com/v1/airports?country=${countryInfo?.[0]?.cca2}&fields=city,iata,name`,
           {
