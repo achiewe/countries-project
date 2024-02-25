@@ -2,8 +2,10 @@ import { TextField } from "@mui/material";
 import styled from "styled-components";
 import { useCountryStore } from "../../store";
 import data from "../../../data.json";
+import { useState } from "react";
 
 export default function CurrencyTradeInputs() {
+  const [amount, setAmount] = useState<number>(0);
   const currencyFrom = useCountryStore((state) => state.currencyFrom);
   const currencyTo = useCountryStore((state) => state.currencyTo);
   const exchangeRates: {
@@ -12,10 +14,12 @@ export default function CurrencyTradeInputs() {
     };
   } = data.exchangeRates;
 
-  // console.log(data.exchangeRates);
-
   const exchangeRate = exchangeRates[currencyFrom][currencyTo];
-  console.log(exchangeRate);
+
+  const calculateExchangeValue = (e: any) => {
+    const secondInputValue = e.target.value * exchangeRate;
+    setAmount(secondInputValue);
+  };
 
   return (
     <ContainerCurrencyInputs>
@@ -24,6 +28,7 @@ export default function CurrencyTradeInputs() {
         label={`Exchange ${currencyFrom} to ${currencyTo}`}
         type="number"
         variant="standard"
+        onChange={calculateExchangeValue}
       />
 
       <svg
@@ -54,9 +59,9 @@ export default function CurrencyTradeInputs() {
       </svg>
       <TextField
         id="standard-basic"
-        label={`Exchange ${currencyFrom} to ${currencyTo}`}
         type="number"
         variant="standard"
+        value={amount.toFixed(2)}
       />
     </ContainerCurrencyInputs>
   );
