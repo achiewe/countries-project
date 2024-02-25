@@ -16,8 +16,8 @@ export default function CurrencyTradeInputs() {
 
   const exchangeRate = exchangeRates[currencyFrom][currencyTo];
 
-  const calculateExchangeValue = (e: any) => {
-    const secondInputValue = e.target.value * exchangeRate;
+  const calculateExchangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const secondInputValue = parseFloat(e.target.value) * exchangeRate;
     setAmount(secondInputValue);
   };
 
