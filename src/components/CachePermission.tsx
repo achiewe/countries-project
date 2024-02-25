@@ -44,7 +44,6 @@ const LocationComponent = () => {
       );
       if (countryResult) {
         const countryName = countryResult.address_components[3];
-        console.log(countryName);
         navigate(
           `/Countries/${
             countryName.short_name ? "GEO" : countryName.short_name
