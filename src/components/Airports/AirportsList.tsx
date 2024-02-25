@@ -8,7 +8,7 @@ import { useState } from "react";
 const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
 
 export default function AirportsList() {
-  const [countryName, setCountryName] = useState<string>("");
+  const [AirportsName, setAirportsName] = useState<string>("");
   const countryInfo = useCountryStore((state) => state.countryInfo);
 
   const airportsQueryKey = ["cachedAirport", countryInfo?.[0]?.cca2];
@@ -47,11 +47,9 @@ export default function AirportsList() {
   const filterAirportsTitle =
     airports && Array.isArray(airports)
       ? airports.filter((airport: any) =>
-          airport.name.toLowerCase().includes(countryName.toLowerCase())
+          airport.name.toLowerCase().includes(AirportsName.toLowerCase())
         )
       : [];
-
-  console.log(countryName);
 
   return (
     <AirportsContainer>
@@ -60,9 +58,9 @@ export default function AirportsList() {
         id="standard-basic"
         label="Search for Airport"
         variant="standard"
-        value={countryName}
+        value={AirportsName}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setCountryName(e.target.value)
+          setAirportsName(e.target.value)
         }
       />
       <div className="airportsDiv">
