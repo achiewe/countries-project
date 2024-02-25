@@ -59,7 +59,6 @@ export default function CurrencyTradeInputs() {
       </svg>
       <TextField
         id="standard-basic"
-        type="number"
         variant="standard"
         value={amount.toFixed(2)}
       />
