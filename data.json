@@ -1,19 +1,24 @@
 {
-  "superheroes": [
-    {
-      "id": 1,
-      "name": "Batman",
-      "alterego": "bruce wayne"
+  "exchangeRates": {
+    "₾": {
+      "$": 0.38,
+      "€": 0.33,
+      "£": 0.28
     },
-    {
-      "id": 2,
-      "name": "superman",
-      "alterego": "clark kent"
+    "$": {
+      "₾": 2.65,
+      "€": 0.88,
+      "£": 0.75
     },
-    {
-      "id": 3,
-      "name": "wonder woman",
-      "alterego": "princess diana"
+    "€": {
+      "₾": 3.03,
+      "$": 1.14,
+      "£": 0.85
+    },
+    "£": {
+      "₾": 3.54,
+      "$": 1.33,
+      "€": 1.18
     }
-  ]
+  }
 }

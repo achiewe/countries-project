@@ -1,10 +1,21 @@
 import { TextField } from "@mui/material";
 import styled from "styled-components";
 import { useCountryStore } from "../../store";
+import data from "../../../data.json";
 
 export default function CurrencyTradeInputs() {
   const currencyFrom = useCountryStore((state) => state.currencyFrom);
   const currencyTo = useCountryStore((state) => state.currencyTo);
+  const exchangeRates: {
+    [key: string]: {
+      [key: string]: number;
+    };
+  } = data.exchangeRates;
+
+  // console.log(data.exchangeRates);
+
+  const exchangeRate = exchangeRates[currencyFrom][currencyTo];
+  console.log(exchangeRate);
 
   return (
     <ContainerCurrencyInputs>
