@@ -31,7 +31,7 @@
 
 ### What I learned
 
-In the countries project I built using React.js, i have gained a wealth of knowledge and skills. within this project, i integrated external APIs for country data, mastering asynchronous data handling and API utilization. i leveraged Zustand for streamlined state management, enhancing code cleanliness and scalability. additionally, i integrated Material-UI for rapid UI development, improving visual appeal and responsiveness. i developed currency exchange functionality, expanding my knowledge of financial APIs and conversion logic. furthermore, i implemented data filtering and search features, enhancing user interaction with the data.
+In the countries project i built using React.js, i have gained a wealth of knowledge and skills. within this project, i integrated external APIs for country data, mastering asynchronous data handling and API utilization. i leveraged Zustand for streamlined state management, enhancing code cleanliness and scalability. additionally, i integrated Material-UI for rapid UI development, improving visual appeal and responsiveness. i developed currency exchange functionality, expanding my knowledge of financial APIs and conversion logic. furthermore, i implemented data filtering and search features, enhancing user interaction with the data.
 
 ## Author
 
