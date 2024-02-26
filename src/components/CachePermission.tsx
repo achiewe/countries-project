@@ -128,6 +128,7 @@ const LocationComponent = (): JSX.Element => {
           },
           (error) => {
             console.error("Error getting location:", error.message);
+            navigate(`/Countries/GEO`);
           }
         );
       } else {
