@@ -4,7 +4,7 @@ import { CountryType } from "../../type";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const LocationComponent = () => {
+const LocationComponent = (): JSX.Element => {
   // bring the states in the component
 
   const allCountries = useCountryStore((state) => state.allCountries);
@@ -137,6 +137,8 @@ const LocationComponent = () => {
 
     getLocation();
   }, [allCountries]);
+
+  return <></>;
 };
 
 export default LocationComponent;
