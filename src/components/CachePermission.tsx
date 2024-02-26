@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useCountryStore } from "../store";
 import { CountryType } from "../../type";
 import axios from "axios";
@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 const LocationComponent = () => {
   // bring the states in the component
-  const [location, setLocation] = useState<any>(null);
 
   const allCountries = useCountryStore((state) => state.allCountries);
 
@@ -125,7 +124,6 @@ const LocationComponent = () => {
         navigator.geolocation.getCurrentPosition(
           (position) => {
             const { latitude, longitude } = position.coords;
-            setLocation({ latitude, longitude });
             fetchCountry(latitude, longitude);
           },
           (error) => {
