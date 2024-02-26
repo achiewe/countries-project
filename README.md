@@ -13,7 +13,7 @@
 
 ### Screenshot
 
-![](./public/assets/preview.jpg)
+![](./public/assets/Screenshot%20from%202024-02-26%2016-41-31.png)
 
 ### Links
 
