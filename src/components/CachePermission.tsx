@@ -140,23 +140,6 @@ const LocationComponent = () => {
 
     getLocation();
   }, [allCountries]);
-
-  return (
-    <div>
-      {location ? (
-        <p>
-          Your location is: {location.latitude}, {location.longitude}
-          {
-            <span>
-              , Country: {country} || short name {shortCountry}
-            </span>
-          }
-        </p>
-      ) : (
-        <p>Fetching location...</p>
-      )}
-    </div>
-  );
 };
 
 export default LocationComponent;
