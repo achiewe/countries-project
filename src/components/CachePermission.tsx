@@ -7,8 +7,7 @@ import { useNavigate } from "react-router-dom";
 const LocationComponent = () => {
   // bring the states in the component
   const [location, setLocation] = useState<any>(null);
-  const country = useCountryStore((state) => state.country);
-  const shortCountry = useCountryStore((state) => state.shortCountry);
+
   const allCountries = useCountryStore((state) => state.allCountries);
 
   //bring the set states in the component
