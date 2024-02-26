@@ -17,7 +17,7 @@
 
 ### Links
 
-- Live Site URL: [https://entertainment-web-app-front.vercel.app/]
+- Live Site URL: [https://countries-project-umber.vercel.app/]
 
 ## My process
 
