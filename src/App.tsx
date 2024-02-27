@@ -43,7 +43,6 @@ function App(): JSX.Element {
             <Route path="/Countries/:name/Airports" element={<Airports />} />
           </Routes>
           <LocationComponent />
-          <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
         </MainContainer>
       </QueryClientProvider>
     </Router>
