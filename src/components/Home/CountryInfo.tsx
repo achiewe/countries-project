@@ -6,7 +6,7 @@ export default function CountryInfo() {
 
   // Check if countryInfo is null, undefined, or empty
   if (!countryInfo || countryInfo.length === 0) {
-    return <div>Please choose a country from the list...</div>; // Return a loading indicator or handle null/empty case
+    return <div>Please choose a country from the list</div>; // Return a loading indicator or handle null/empty case
   }
 
   // Check if the first element of countryInfo has currencies property
