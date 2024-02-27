@@ -21,8 +21,8 @@ type CountryStore = {
 export const useCountryStore = create<CountryStore>((set) => ({
   country: "",
   shortCountry: "",
-  currencyFrom: "₾",
-  currencyTo: "$",
+  currencyFrom: "",
+  currencyTo: "",
   allCountries: [],
   airportsInfo: [],
   countryInfo: null,
