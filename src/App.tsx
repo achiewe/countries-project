@@ -1,5 +1,4 @@
 import { QueryClientProvider, QueryClient } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
 import GlobalStyles from "./GlobalStyles";
 import styled from "styled-components";
 import {
