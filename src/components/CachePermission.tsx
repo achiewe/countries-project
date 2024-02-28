@@ -14,7 +14,7 @@ const LocationComponent = (): JSX.Element => {
   const setShortCountry = useCountryStore((state) => state.setShortCountry);
   const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
   const setAllCountries = useCountryStore((state) => state.setAllCountries);
-
+  // change page of this
   const navigate = useNavigate();
   // user accept to share location
   const handleCountryInfo = (selectedCountry: string): void => {
