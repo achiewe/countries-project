@@ -92,7 +92,7 @@ const HeaderContainer = styled.header`
   flex-direction: row;
   align-items: center;
   padding: 10px 0;
-  gap: 40px;
+  gap: 35px;
   margin-bottom: 20px;
   border-radius: 20px;
   justify-content: center;
