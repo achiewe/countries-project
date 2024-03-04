@@ -7,11 +7,13 @@ import { useNavigate } from "react-router-dom";
 
 // InputCountry function
 export default function InputCountry() {
+  // set state
   const setCountryInfo = useCountryStore((state) => state.setCountryInfo);
   const setCountry = useCountryStore((state) => state.setCountry);
   const setShortCountry = useCountryStore((state) => state.setShortCountry);
   const navigate = useNavigate();
 
+  // states
   const country = useCountryStore((state) => state.country);
   const allCountries = useCountryStore((state) => state.allCountries);
   // to take the country name and take short name
